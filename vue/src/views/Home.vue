@@ -1,12 +1,14 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <p>Your content goes here. Make it look nice.</p>
+    <h2> List of Available Properties</h2>
     <ul class="list-group">
       <properties-list
+      
       v-for="properties of properties"
       v-bind:key="properties.id"
       v-bind:properties="properties"
+      
       />
     </ul>
   </div>
@@ -44,3 +46,9 @@ export default {
   
 };
 </script>
+<style>
+  #list-group {
+    background-origin: padding-box 100%;
+
+  }
+</style>
