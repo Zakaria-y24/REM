@@ -19,6 +19,13 @@ export default {
     PropertiesList
   },
   name: "home",
+  data() {
+    return {properties: [],
+    itemsToAdd: {
+      name: " ",
+      address: " "
+    }}
+  },
   
     created() {
       PropertiesService
