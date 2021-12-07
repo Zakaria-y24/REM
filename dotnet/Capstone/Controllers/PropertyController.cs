@@ -26,19 +26,21 @@ namespace Capstone.Controllers
 
         [HttpPost]
         [Authorize]
-
         public ActionResult AddProperty(Property property)
         {
-            Property newProperty = properties.Create(property);
 
-            string location = $"properties/{newProperty.Id}";
+            int userId = int.Parse(this.User.FindFirst("sub").Value);
 
-            return Created(location, newProperty);
+
+            Property addedProperty = properties.AddProperty(userId, property);
+
+            return Created("/mattisms/" + addedProperty.Id, addedProperty);
+
         }
 
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult GetAllMattisms()
+        public ActionResult GetAllProperties()
         {
             IEnumerable<Property> results = properties.GetAllProperties();
 
