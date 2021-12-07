@@ -2,11 +2,7 @@
 <div>
   <div class="home">
     <h1>Home</h1>
-<<<<<<< HEAD
-    <p>List of Available Properties</p>
-=======
     <h2> List of Available Properties</h2>
->>>>>>> 443119591a99d332135ebfda1adfaf52c1e04434
     <ul class="list-group">
       <properties-list
       

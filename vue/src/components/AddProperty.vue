@@ -37,12 +37,6 @@
                    required 
                    placeholder="Enter Size of Property in Sqft">
         </div>
-        <select class="form-select" aria-label="Default select example"
-                v-model.trim="newProperty.isAvailabe">
-                <option selected>Is your Property Available</option>
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-        </select>
 
         <button type="submit" class="btn btn-success">
             Submit
@@ -69,7 +63,7 @@ data() {
                 Beds: '',
                 Baths: '',
                 Size: '',
-                isAvailabe: ' '
+                isAvailabe: true
             },
             showError: false,
             errorMessage: '',
@@ -79,12 +73,7 @@ data() {
         addNewProperty() {
             PropertyService.addProperty(this.newProperty)
             .then(response => {
-                if (this.newProperty.isAvailabe == "true"){
-                    this.newProperty.isAvailabe = true;
-                }
-                else{
-                    this.newProperty.isAvailabe = false;
-                }
+
 
                 const newItem = response.data;
                 this.properties.push(newItem);

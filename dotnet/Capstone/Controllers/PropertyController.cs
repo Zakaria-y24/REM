@@ -34,7 +34,7 @@ namespace Capstone.Controllers
 
             Property addedProperty = properties.AddProperty(userId, property);
 
-            return Created("/mattisms/" + addedProperty.Id, addedProperty);
+            return Created("/properties/" + addedProperty.Id, addedProperty);
 
         }
 
