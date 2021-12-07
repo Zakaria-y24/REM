@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 
 namespace Capstone.Controllers
 {
+
     [Route("properties")] // properties
+
     [ApiController]
     public class PropertyController : ControllerBase
     {
@@ -21,18 +23,29 @@ namespace Capstone.Controllers
             this.properties = properties;
         }
 
-      [HttpPost]
-      [Authorize]
 
-      public ActionResult AddProperty(Property property)
+        [HttpPost]
+        [Authorize]
+
+        public ActionResult AddProperty(Property property)
         {
             Property newProperty = properties.Create(property);
 
             string location = $"properties/{newProperty.Id}";
 
-            return Created(location,newProperty);
+            return Created(location, newProperty);
         }
 
-        
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult GetAllMattisms()
+        {
+            IEnumerable<Property> results = properties.GetAllProperties();
+
+            return Ok(results);
+        }
+
+
+
     }
 }
