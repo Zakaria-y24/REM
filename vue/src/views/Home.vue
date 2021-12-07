@@ -1,7 +1,8 @@
 <template>
+<div>
   <div class="home">
     <h1>Home</h1>
-    <p>Your content goes here. Make it look nice.</p>
+    <p>List of Available Properties</p>
     <ul class="list-group">
       <properties-list
       v-for="properties of properties"
@@ -9,14 +10,19 @@
       v-bind:properties="properties"/>
     </ul>
   </div>
+  <add-property />
+</div>
 </template>
 
 <script>
 import PropertiesList from '../components/PropertiesList.vue';
 import PropertiesService from '../services/PropertyService.js';
+import AddProperty from '../components/AddProperty.vue';
+
 export default {
   components: {
-    PropertiesList
+    PropertiesList,
+    AddProperty
   },
   name: "home",
   data() {

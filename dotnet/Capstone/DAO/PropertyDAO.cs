@@ -19,7 +19,7 @@ namespace Capstone.DAO
         {
             List<Property> properties = new List<Property>();
 
-            const string SELECT = "SELECT property_id, property_address, property_name, property_beds, property_baths, property_size, property_owner FROM properties";
+            const string SELECT = "SELECT property_id, property_address, property_name, property_beds, property_baths, property_size, property_owner, is_available FROM properties";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -42,6 +42,7 @@ namespace Capstone.DAO
                             property.Baths = Convert.ToInt32(reader["property_baths"]);
                             property.Size = Convert.ToInt32(reader["property_size"]);
                             property.OwnerId = Convert.ToInt32(reader["property_owner"]);
+                            property.IsAvailable = Convert.ToBoolean(reader["is_available"]);
                             properties.Add(property);
                         }
                     }
