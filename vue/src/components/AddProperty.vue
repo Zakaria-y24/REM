@@ -69,7 +69,7 @@ data() {
                 Beds: '',
                 Baths: '',
                 Size: '',
-                isAvailabe: ' '
+                isAvailable: ' '
             },
             showError: false,
             errorMessage: '',
@@ -79,11 +79,11 @@ data() {
         addNewProperty() {
             PropertyService.addProperty(this.newProperty)
             .then(response => {
-                if (this.newProperty.isAvailabe == "true"){
-                    this.newProperty.isAvailabe = true;
+                if (this.newProperty.isAvailable === "true"){
+                    this.newProperty.isAvailable = true;
                 }
                 else{
-                    this.newProperty.isAvailabe = false;
+                    this.newProperty.isAvailable = false;
                 }
 
                 const newItem = response.data;
@@ -95,7 +95,7 @@ data() {
                 Beds: '',
                 Baths: '',
                 Size: '',
-                isAvailabe: ' '
+                isAvailable: ' '
                 }
             })
             .catch(response => {

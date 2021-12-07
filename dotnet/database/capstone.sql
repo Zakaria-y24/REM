@@ -31,7 +31,7 @@ CREATE TABLE properties(
 	property_baths int NOT NULL,
 	property_size int NOT NULL,
 	property_owner int NOT NULL,
-	property_isAvailable bit Not Null,
+	property_isAvailable bit NOT NULL,
 	CONSTRAINT PK_property PRIMARY KEY (property_id),
 	CONSTRAINT FK_property_owner_users_user_id FOREIGN KEY (property_owner)REFERENCES users(user_id)
 )
@@ -50,5 +50,5 @@ INSERT INTO properties (property_address, property_name, property_beds, property
 INSERT INTO properties (property_address, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
 ('2312 Far Away Dr','House3', 1, 1, 2500, 1, 1);
 INSERT INTO properties (property_address, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
-('3746 Somewhere Close','House4',3,2, 1598, 1, 0);
+('3746 Somewhere Close','House4',3,2, 1598, 1, 1);
 SELECT * from properties
