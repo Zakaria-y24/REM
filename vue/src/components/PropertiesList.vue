@@ -4,6 +4,8 @@
   >
     {{ properties.name }}
     {{properties.address}}
+    {{properties.id}}
+    {{properties.isAvailable}}
     <span
       v-bind:class="{
         
