@@ -53,7 +53,7 @@ namespace Capstone.DAO
 
         public Property Create(Property property)
         {
-            int maxId = Properties.Max(r => r.Id) ?? 0;
+            int maxId = Properties.Max(r => r.Id);
             property.Id = maxId + 1;
             Properties.Add(property);
             return property;

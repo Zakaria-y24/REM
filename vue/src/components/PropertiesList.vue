@@ -2,10 +2,10 @@
     <li
     class="list-group-item  justify-content-between align-items-center"
   >
-    {{ properties.text }}
+    {{ properties.Name }}
     <span
       v-bind:class="{
-          id
+        id
       }"
     >
       
@@ -17,7 +17,7 @@
 
 export default {
     props: {
-        properties: Object,
+        property: Object,
     }
 }
 </script>

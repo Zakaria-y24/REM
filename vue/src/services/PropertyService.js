@@ -3,6 +3,6 @@ import axios from 'axios';
 export default {
 
     getAllProperties() {
-        return axios.get('/');
+        return axios.get('/properties');
     }
 }
