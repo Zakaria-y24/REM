@@ -31,6 +31,7 @@ CREATE TABLE properties(
 	property_baths int NOT NULL,
 	property_size int NOT NULL,
 	property_owner int NOT NULL,
+	property_isAvailable bit Not Null,
 	CONSTRAINT PK_property PRIMARY KEY (property_id),
 	CONSTRAINT FK_property_owner_users_user_id FOREIGN KEY (property_owner)REFERENCES users(user_id)
 )
@@ -40,13 +41,14 @@ INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg4
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
 GO
 
-SELECT property_id, property_address, property_name, property_beds, property_baths, property_size, property_owner FROM properties 
+SELECT property_id, property_address, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties 
 
-INSERT INTO properties (property_address, property_name, property_beds, property_baths, property_size, property_owner) VALUES 
-('2498 Hickory Pine Ln','House1',3,2, 1598, 1);
-INSERT INTO properties (property_address, property_name, property_beds, property_baths, property_size, property_owner) VALUES 
-('2907 N High St','House2', 4, 2, 2000, 1);
-INSERT INTO properties (property_address, property_name, property_beds, property_baths, property_size, property_owner) VALUES 
-('2312 Far Away Dr','House3', 1, 1, 2500, 1);
-INSERT INTO properties (property_address, property_name, property_beds, property_baths, property_size, property_owner) VALUES 
-('3746 Somewhere Close','House4',3,2, 1598, 1);
+INSERT INTO properties (property_address, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
+('2498 Hickory Pine Ln','House1',3,2, 1598, 1, 1);
+INSERT INTO properties (property_address, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
+('2907 N High St','House2', 4, 2, 2000, 1, 1);
+INSERT INTO properties (property_address, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
+('2312 Far Away Dr','House3', 1, 1, 2500, 1, 1);
+INSERT INTO properties (property_address, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
+('3746 Somewhere Close','House4',3,2, 1598, 1, 0);
+SELECT * from properties
