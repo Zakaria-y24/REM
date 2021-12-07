@@ -10,7 +10,7 @@ namespace Capstone.DAO
     public class PropertyDAO : IPropertyDAO
     {
         private string connectionString;
-
+        private  List<Property> Properties { get; set; }
         public PropertyDAO(string connectionString)
         {
             this.connectionString = connectionString;
@@ -53,9 +53,9 @@ namespace Capstone.DAO
 
         public Property Create(Property property)
         {
-            int maxId = Property.Max(r => r.Id) ?? 0;
+            int maxId = Properties.Max(r => r.Id) ?? 0;
             property.Id = maxId + 1;
-            Property.Add(property);
+            Properties.Add(property);
             return property;
         }
     }
