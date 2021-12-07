@@ -37,6 +37,7 @@
                    required 
                    placeholder="Enter Size of Property in Sqft">
         </div>
+       
 
         <button type="submit" class="btn btn-success">
             Submit
@@ -63,7 +64,7 @@ data() {
                 Beds: '',
                 Baths: '',
                 Size: '',
-                isAvailable: ' '
+                isAvailable: ''
 
             },
             showError: false,
@@ -75,7 +76,7 @@ data() {
             PropertyService.addProperty(this.newProperty)
             .then(response => {
 
-                if (this.newProperty.isAvailable === "true"){
+                if (this.newProperty.isAvailable == "true"){
                     this.newProperty.isAvailable = true;
                 }
                 else{
@@ -93,9 +94,9 @@ data() {
                 Beds: '',
                 Baths: '',
                 Size: '',
-                isAvailable: ' '
+                isAvailable: ''
                 }
-            })
+            }})
             .catch(response => {
                 console.error("Couldn't add property", response)
                 this.showError = true;
