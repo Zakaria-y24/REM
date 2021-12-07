@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Controllers
 {
-    [Route("mattisms")] // mattisms
+    [Route("properties")] 
     [ApiController]
     public class PropertyController : ControllerBase
     {
@@ -21,8 +21,15 @@ namespace Capstone.Controllers
             this.properties = properties;
         }
 
-       
+        [HttpGet] 
+        [AllowAnonymous]
+        public ActionResult GetAllMattisms()
+        {
+            IEnumerable<Property> results = properties.GetAllProperties();
 
-        
+            return Ok(results);
+        }
+
+
     }
 }
