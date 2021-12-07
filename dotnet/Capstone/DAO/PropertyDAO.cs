@@ -10,7 +10,7 @@ namespace Capstone.DAO
     public class PropertyDAO : IPropertyDAO
     {
         private string connectionString;
-        private  List<Property> Properties { get; set; }
+        private static List<Property> Properties { get; set; }
         public PropertyDAO(string connectionString)
         {
             this.connectionString = connectionString;
@@ -51,12 +51,30 @@ namespace Capstone.DAO
             return properties;
         }
 
-        public Property Create(Property property)
+        public Property AddProperty(int userId, Property itemTOAdd)
         {
-            int maxId = Properties.Max(r => r.Id) ?? 0;
-            property.Id = maxId + 1;
-            Properties.Add(property);
-            return property;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                const string sql = "INSERT INTO properties (property_address, property_name, property_beds,property_baths, property_size,property_owner) " +
+                    "VALUES(@address,@name, @beds, @baths,@size,@ownerId); SELECT @@IDENTITY;";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@address", itemTOAdd.Address);
+                    command.Parameters.AddWithValue("@ownerId", userId);
+                    command.Parameters.AddWithValue("@beds", itemTOAdd.Beds);
+                    command.Parameters.AddWithValue("@baths", itemTOAdd.Baths);
+                    command.Parameters.AddWithValue("@name", itemTOAdd.Name);
+                    command.Parameters.AddWithValue("@size", itemTOAdd.Size);
+
+                    int newRowId = Convert.ToInt32(command.ExecuteScalar());
+                    itemTOAdd.Id = newRowId;
+
+                }
+
+            }
+            return itemTOAdd;
         }
     }
 }
