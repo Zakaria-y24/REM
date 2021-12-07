@@ -1,7 +1,12 @@
 <template>
+<div>
   <div class="home">
     <h1>Home</h1>
+<<<<<<< HEAD
+    <p>List of Available Properties</p>
+=======
     <h2> List of Available Properties</h2>
+>>>>>>> 443119591a99d332135ebfda1adfaf52c1e04434
     <ul class="list-group">
       <properties-list
       
@@ -12,18 +17,24 @@
       />
     </ul>
   </div>
+  <add-property v-if="isLoggedIn" v-bind:properties="properties" />
+</div>
 </template>
 
 <script>
 import PropertiesList from '../components/PropertiesList.vue';
 import PropertiesService from '../services/PropertyService.js';
+import AddProperty from '../components/AddProperty.vue';
+
 export default {
   components: {
-    PropertiesList
+    PropertiesList,
+    AddProperty
   },
   name: "home",
   data() {
-    return {properties: [],
+    return {
+    properties: [],
     itemsToAdd: {
       id: 0,
       name: " ",
@@ -42,6 +53,11 @@ export default {
       .catch(response => {
         console.error("could not get properties", response);
       });
+    },
+    computed: {
+      isLoggedIn() {
+      return this.$store.state.token;
+    },
     }
   
 };

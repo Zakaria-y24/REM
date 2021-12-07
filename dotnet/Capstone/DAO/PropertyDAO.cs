@@ -58,8 +58,8 @@ namespace Capstone.DAO
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                const string sql = "INSERT INTO properties (property_address, property_name, property_beds,property_baths, property_size,property_owner) " +
-                    "VALUES(@address,@name, @beds, @baths,@size,@ownerId); SELECT @@IDENTITY;";
+                const string sql = "INSERT INTO properties (property_address, property_name, property_beds,property_baths, property_size,property_owner, property_isAvailable) " +
+                    "VALUES(@address,@name, @beds, @baths,@size,@ownerId, @IsAvailable); SELECT @@IDENTITY;";
 
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
@@ -69,6 +69,7 @@ namespace Capstone.DAO
                     command.Parameters.AddWithValue("@baths", itemTOAdd.Baths);
                     command.Parameters.AddWithValue("@name", itemTOAdd.Name);
                     command.Parameters.AddWithValue("@size", itemTOAdd.Size);
+                    command.Parameters.AddWithValue("@IsAvailable", itemTOAdd.IsAvailable);
 
                     int newRowId = Convert.ToInt32(command.ExecuteScalar());
                     itemTOAdd.Id = newRowId;
