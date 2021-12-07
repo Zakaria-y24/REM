@@ -1,10 +1,15 @@
 <template>
+
     <li
     class="list-group-item  justify-content-between align-items-center" v-if="properties.isAvailable == true">
-  >
+  <div class="property-name">
     {{ properties.name }}
+  </div>
+  <div class="property-address">
     {{properties.address}}
-    {{properties.id}}
+
+  </div>
+    
 
     <span
       v-bind:class="{
@@ -26,5 +31,8 @@ export default {
 </script>
 
 <style>
-
+  li div.property-name {
+    background-color: red;
+    flex-shrink: inherit;
+  }
 </style>
