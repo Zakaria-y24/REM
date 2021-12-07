@@ -6,5 +6,6 @@ namespace Capstone.DAO
     public interface IPropertyDAO
     {
         IEnumerable<Property> GetAllProperties();
+        Property Create(Property property);
     }
 }
