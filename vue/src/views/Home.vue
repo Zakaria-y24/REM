@@ -3,7 +3,9 @@
   <div class="home">
     <h1>Home</h1>
 
+
     <h2> List of Available Properties</h2>
+
 
     <ul class="list-group">
       <properties-list
