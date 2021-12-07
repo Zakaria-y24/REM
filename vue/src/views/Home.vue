@@ -31,7 +31,7 @@ export default {
       PropertiesService
       .getAllProperties()
       .then(response => {
-        this.PropertiesList = response.data;
+        this.properties = response.data;
       })
       .catch(response => {
         console.error("could not get properties", response);
