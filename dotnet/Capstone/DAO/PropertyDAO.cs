@@ -53,6 +53,7 @@ namespace Capstone.DAO
 
         public Property AddProperty(int userId, Property itemTOAdd)
         {
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
@@ -75,6 +76,7 @@ namespace Capstone.DAO
 
             }
             return itemTOAdd;
+
         }
     }
 }
