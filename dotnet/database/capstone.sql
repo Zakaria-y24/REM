@@ -32,6 +32,7 @@ CREATE TABLE properties(
 	property_baths int NOT NULL,
 	property_size int NOT NULL,
 	property_owner int NOT NULL,
+	property_isAvailable bit Not Null,
 	CONSTRAINT PK_property PRIMARY KEY (property_id),
 	CONSTRAINT FK_property_owner_users_user_id FOREIGN KEY (property_owner)REFERENCES users(user_id)
 )
@@ -40,6 +41,7 @@ CREATE TABLE properties(
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
 GO
+
 
 
 
