@@ -23,6 +23,16 @@ CREATE TABLE users (
 	user_role varchar(50) NOT NULL
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 )
+CREATE TABLE properties(
+	property_id int IDENTITY (1000,1) NOT NULL,
+	property_address nvarchar (100) NOT NULL,
+	property_name nvarchar(25) NULL,
+	property_beds int NOT NULL,
+	property_baths int NOT NULL,
+	property_size int NOT NULL,
+	property_owner int NOT NULL,
+	CONSTRAINT PK_property PRIMARY KEY (property_id),
+	CONSTRAINT FK_property_owner_users_user_id FOREIGN KEY (property_owner)REFERENCES users(user_id)
 
 -- Populate default data for testing: user and admin with password of 'password'
 -- These values should not be kept when going to Production
