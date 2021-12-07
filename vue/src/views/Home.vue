@@ -11,7 +11,7 @@
       />
     </ul>
   </div>
-  <add-property />
+  <add-property v-if="isLoggedIn" v-bind:properties="properties" />
 </div>
 </template>
 
@@ -27,7 +27,8 @@ export default {
   },
   name: "home",
   data() {
-    return {properties: [],
+    return {
+    properties: [],
     itemsToAdd: {
       id: 0,
       name: " ",
@@ -46,6 +47,11 @@ export default {
       .catch(response => {
         console.error("could not get properties", response);
       });
+    },
+    computed: {
+      isLoggedIn() {
+      return this.$store.state.token;
+    },
     }
   
 };

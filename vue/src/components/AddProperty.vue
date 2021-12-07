@@ -1,7 +1,7 @@
 <template> 
   <div>
       <h4>Add Property</h4>
-       <form v-on:submit.prevent="addProperty">
+       <form v-on:submit.prevent="addNewProperty()">
         <div class="mb-3">
             <label for="address" class="form-label"></label>
             <input type="text" class="form-control" id="address" 
@@ -58,7 +58,9 @@
 import PropertyService from '../services/PropertyService.js'
 
 export default {
-
+props: {
+        properties: Object,
+    },
 data() {
         return {
             newProperty: {
@@ -68,13 +70,22 @@ data() {
                 Baths: '',
                 Size: '',
                 isAvailabe: ' '
-            }
+            },
+            showError: false,
+            errorMessage: '',
         }
     },
-    mmethods: {
-        addProperty() {
+    methods: {
+        addNewProperty() {
             PropertyService.addProperty(this.newProperty)
             .then(response => {
+                if (this.newProperty.isAvailabe == "true"){
+                    this.newProperty.isAvailabe = true;
+                }
+                else{
+                    this.newProperty.isAvailabe = false;
+                }
+
                 const newItem = response.data;
                 this.properties.push(newItem);
 
