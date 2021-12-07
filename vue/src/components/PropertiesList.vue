@@ -1,6 +1,6 @@
 <template>
     <li
-    class="list-group-item  justify-content-between align-items-center"
+    class="list-group-item  justify-content-between align-items-center" v-if="properties.isAvailable = true"
   >
     {{ properties.name }}
     {{properties.address}}

@@ -6,7 +6,8 @@
       <properties-list
       v-for="properties of properties"
       v-bind:key="properties.id"
-      v-bind:properties="properties"/>
+      v-bind:properties="properties"
+      />
     </ul>
   </div>
 </template>
@@ -22,8 +23,11 @@ export default {
   data() {
     return {properties: [],
     itemsToAdd: {
+      id: 0,
       name: " ",
-      address: " "
+      address: " ",
+      isAvailable: false
+
     }}
   },
   
