@@ -5,8 +5,8 @@ export default {
     getAllProperties() {
         return axios.get('/properties');
     },
-    addNewProperties() {
-         axios.post('/addProperties');
+    addProperty(property) {
+         return axios.post('/properties', property);
     }
 
 }
