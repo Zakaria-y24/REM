@@ -1,12 +1,7 @@
 <template>
-<div>
   <div class="home">
     <h1>Home</h1>
-
-
     <h2> List of Available Properties</h2>
-
-
     <ul class="list-group">
       <properties-list
       
@@ -17,14 +12,12 @@
       />
     </ul>
   </div>
-  <add-property v-if="isLoggedIn" v-bind:properties="properties" />
-</div>
 </template>
 
 <script>
 import PropertiesList from '../components/PropertiesList.vue';
 import PropertiesService from '../services/PropertyService.js';
-import AddProperty from '../components/AddProperty.vue';
+import AddProperty from '../components/AddProperty';
 
 export default {
   components: {
@@ -33,13 +26,12 @@ export default {
   },
   name: "home",
   data() {
-    return {
-    properties: [],
+    return {properties: [],
     itemsToAdd: {
       id: 0,
       name: " ",
       address: " ",
-      isAvailable: true
+      isAvailable: false
 
     }}
   },
@@ -54,17 +46,9 @@ export default {
         console.error("could not get properties", response);
       });
     },
-    computed: {
-      isLoggedIn() {
-      return this.$store.state.token;
-    },
-    }
   
 };
 </script>
 <style>
-  #list-group {
-    background-origin: padding-box 100%;
 
-  }
 </style>
