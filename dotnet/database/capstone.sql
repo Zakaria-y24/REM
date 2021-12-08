@@ -39,15 +39,15 @@ CREATE TABLE properties(
 	CONSTRAINT FK_property_owner_users_user_id FOREIGN KEY (property_owner)REFERENCES users(user_id)
 )
 CREATE TABLE applicants(
-applicant_id int IDENTITY (1,1) NOT NULL,
-applicant_name nvarchar(25) NOT NULL,
-applicant_social_hash nvarchar(20)  NOT NULL,
-applicant_address nvarchar(50) NOT NULL,
-applicant_hasPets bit NOT NULL,
-applicant_phone nvarchar(15),
-applicant_property int NOT NULL,
-CONSTRAINT PK_applicant PRIMARY KEY (applicant_id),
-CONSTRAINT FK_applicant_property_properties_property_id FOREIGN KEY(applicant_property) REFERENCES properties(property_id)
+	applicant_id int IDENTITY (1,1) NOT NULL,
+	applicant_name nvarchar(25) NOT NULL,
+	applicant_social_hash nvarchar(20)  NOT NULL,
+	applicant_address nvarchar(50) NOT NULL,
+	applicant_hasPets bit NOT NULL,
+	applicant_phone nvarchar(15),
+	applicant_property int NOT NULL,
+	CONSTRAINT PK_applicant PRIMARY KEY (applicant_id),
+	CONSTRAINT FK_applicant_property_properties_property_id FOREIGN KEY(applicant_property) REFERENCES properties(property_id)
 )
 -- Populate default data for testing: user and admin with password of 'password'
 -- These values should not be kept when going to Production
