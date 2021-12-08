@@ -2,7 +2,7 @@
   <div>
       <h2>Apply for Properties</h2>
       <form v-on:submit="applyForProperty()">
-                  <div class="mb-3">
+        <div class="mb-3">
             <label for="name" class="form-label"></label>
             <input type="text" class="form-control" id="name" 
                     v-model.trim="app.name"

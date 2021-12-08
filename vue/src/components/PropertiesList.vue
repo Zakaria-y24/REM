@@ -4,6 +4,7 @@
     class="list-group-item  justify-content-between align-items-center" v-if="properties.isAvailable == true">
   <div class="property-name">
     {{ properties.name }}
+    
   </div>
   <div class="property-address">
     {{properties.street}}
