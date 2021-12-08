@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Capstone.Controllers
 {
 
-    [Route("applicant")] // properties
+    [Route("application")] 
 
     [ApiController]
     public class ApplicantController : ControllerBase

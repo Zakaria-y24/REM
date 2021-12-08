@@ -10,7 +10,9 @@ namespace Capstone.Models
         public int ApllicantId { get; set; }
         public string Name { get; set; }
         public int Social { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now.Date;
         public DateTime BirthDate { get; set; }
+        public string Status { get; set; } = "Pending";
         public string Email { get; set; }
         public string Address { get; set; }
         public bool HasPets { get; set; }
