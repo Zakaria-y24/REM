@@ -3,11 +3,32 @@
       <h4>Add Property</h4>
        <form v-on:submit.prevent="addNewProperty()">
         <div class="mb-3">
-            <label for="address" class="form-label"></label>
-            <input type="text" class="form-control" id="address" 
-                    v-model.trim="newProperty.Address"
+            <label for="street" class="form-label"></label>
+            <input type="text" class="form-control" id="street" 
+                    v-model.trim="newProperty.Street"
                    required 
                    placeholder="Enter address">
+        </div>
+        <div class="mb-3">
+            <label for="city" class="form-label"></label>
+            <input type="text" class="form-control" id="city" 
+                    v-model.trim="newProperty.City"
+                   required 
+                   placeholder="Enter City">
+        </div>
+        <div class="mb-3">
+            <label for="state" class="form-label"></label>
+            <input type="text" class="form-control" id="state" 
+                    v-model.trim="newProperty.State"
+                   required 
+                   placeholder="Enter State">
+        </div>
+        <div class="mb-3">
+            <label for="zipcode" class="form-label"></label>
+            <input type="text" class="form-control" id="zipcode" 
+                    v-model.number="newProperty.Zipcode"
+                   required 
+                   placeholder="Enter Zipcode">
         </div>
         <div class="mb-3">
             <label for="name" class="form-label"></label>
@@ -38,9 +59,8 @@
                    placeholder="Enter Size of Property in Sqft">
         </div>
         <div>
-            Is the Property Available to Rent or Buy?
-        <input type="radio" :value="true" v-model="isAvailable"> yes
-        <input type="radio" :value="false" v-model="isAvailable"> no
+        <input type="radio" :value="true" v-model="newProperty.isAvailable"> yes
+        <input type="radio" :value="false" v-model="newProperty.isAvailable"> no
         </div>
         <button type="submit" class="btn btn-success">
             Submit
@@ -56,13 +76,16 @@
 import PropertyService from '../services/PropertyService.js'
 
 export default {
-props: {
+ props: {
         properties: Object,
     },
 data() {
         return {
             newProperty: {
-                Address: '',
+                Street: '',
+                City: '',
+                State: '',
+                Zipcode: '',
                 Name: '',
                 Beds: '',
                 Baths: '',
@@ -79,13 +102,6 @@ data() {
             PropertyService
             .addProperty(this.newProperty)
             .then(response => {
-
-                if (this.newProperty.isAvailable == "true"){
-                    this.newProperty.isAvailable = true;
-                }
-                else{
-                    this.newProperty.isAvailable = false;
-
                 const newItem = response.data;
                 this.properties.push(newItem);
 
@@ -97,7 +113,7 @@ data() {
                 Size: '',
                 isAvailable: false
                 }
-            }})
+        })
             .catch(response => {
                 console.error("Couldn't add property", response)
                 this.showError = true;

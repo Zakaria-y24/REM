@@ -9,7 +9,7 @@
       v-bind:key="properties.id"
       v-bind:properties="properties" 
       />
-      <add-property/>
+      <add-property v-bind:addedProperties="properties" />
     </ul>
   </div>
 </template>
