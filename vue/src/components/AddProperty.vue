@@ -59,10 +59,7 @@
                    placeholder="Enter Size of Property in Sqft">
         </div>
         <div>
-<<<<<<< HEAD
-=======
             Is the Property Available to Rent?
->>>>>>> a2a6c7935252aaa31061823fe6f0b2eb4e702a97
         <input type="radio" :value="true" v-model="newProperty.isAvailable"> yes
         <input type="radio" :value="false" v-model="newProperty.isAvailable"> no
         </div>
@@ -77,21 +74,15 @@
 
 <script>
  
- import PropertyService from '../services/PropertyService.js'
+import PropertyService from '../services/PropertyService.js'
 
 export default {
-<<<<<<< HEAD
-
-data() {
-        return {
-=======
 props:{
     properties: Array
 },
 data() {
         return {
             
->>>>>>> a2a6c7935252aaa31061823fe6f0b2eb4e702a97
             newProperty: {
                 Street: '',
                 City: '',
