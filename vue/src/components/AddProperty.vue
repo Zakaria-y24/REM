@@ -38,6 +38,7 @@
                    placeholder="Enter Size of Property in Sqft">
         </div>
         <div>
+            Is the Property Available to Rent or Buy?
         <input type="radio" :value="true" v-model="isAvailable"> yes
         <input type="radio" :value="false" v-model="isAvailable"> no
         </div>
