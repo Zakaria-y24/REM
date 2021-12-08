@@ -27,12 +27,13 @@ export default {
   },
   name: "home",
   data() {
-    return {
-      properties: [],
-      itemsToAdd: {
+    return {properties: [],
+    itemsToAdd: {
       id: 0,
-      name: "",
-      address: "",
+      name: " ",
+      street: "",
+      city: "",
+      zipcode:"",
       isAvailable: false
 
     }}
@@ -56,7 +57,7 @@ export default {
       return this.$store.state.user && 
              this.$store.state.user.role === 'admin';
     }
-  },
+  },  
   
 };
 </script>

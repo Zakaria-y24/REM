@@ -59,6 +59,7 @@
                    placeholder="Enter Size of Property in Sqft">
         </div>
         <div>
+            Is the Property Available to Rent or Buy?
         <input type="radio" :value="true" v-model="newProperty.isAvailable"> yes
         <input type="radio" :value="false" v-model="newProperty.isAvailable"> no
         </div>
@@ -77,10 +78,11 @@ import PropertyService from '../services/PropertyService.js'
 
 export default {
  props: {
-        properties: Object,
+        properties: Array,
     },
 data() {
         return {
+          
             newProperty: {
                 Street: '',
                 City: '',
@@ -103,7 +105,7 @@ data() {
             .addProperty(this.newProperty)
             .then(response => {
                 const newItem = response.data;
-                this.properties.push(newItem);
+                this.addedProperties.push(newItem);
 
                 this.newProperty = {
                 Street: '',
