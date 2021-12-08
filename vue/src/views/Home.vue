@@ -7,9 +7,9 @@
       
       v-for="properties of properties"
       v-bind:key="properties.id"
-      v-bind:properties="properties"
-      
+      v-bind:properties="properties" 
       />
+      <add-property/>
     </ul>
   </div>
 </template>
@@ -19,10 +19,11 @@ import PropertiesList from '../components/PropertiesList.vue';
 import PropertiesService from '../services/PropertyService.js';
 import AddProperty from '../components/AddProperty';
 
+
 export default {
   components: {
     PropertiesList,
-    AddProperty
+    AddProperty,
   },
   name: "home",
   data() {

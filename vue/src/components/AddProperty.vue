@@ -75,7 +75,8 @@ data() {
     },
     methods: {
         addNewProperty() {
-            PropertyService.addProperty(this.newProperty)
+            PropertyService
+            .addProperty(this.newProperty)
             .then(response => {
 
                 if (this.newProperty.isAvailable == "true"){
@@ -83,9 +84,6 @@ data() {
                 }
                 else{
                     this.newProperty.isAvailable = false;
-
-
-
 
                 const newItem = response.data;
                 this.properties.push(newItem);
