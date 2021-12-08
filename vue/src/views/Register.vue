@@ -1,11 +1,12 @@
 <template>
-  <div id="register" class="text-center">
-    <form class="form-register" @submit.prevent="register">
+  <div id="register" class="text-center mt-3">
+    <form class="form-register " @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
       <div class="form-group">
+        <label for="username" class="sr-only">Username</label>
         <input
           type="text"
           id="username"
@@ -16,6 +17,7 @@
           autofocus />
       </div>
       <div class="form-group">
+        <label for="password" class="sr-only">Password</label>
         <input
           type="password"
           id="password"
@@ -25,6 +27,7 @@
           required />
       </div>
       <div class="form-group">
+        <label for="confirmPassword" class="sr-only">Confirm Password</label>
         <input
           type="password"
           id="confirmPassword"
@@ -39,9 +42,9 @@
       <div>
         Are you a manager?
       <input type="radio" :value="'admin'" v-model="user.role"> Yes
-      <input type="radio" :value="'user'" v-model="user.role"> no
+      <input type="radio" :value="'user'" v-model="user.role"> No
       </div>
-      <button class="btn btn-primary" type="submit">
+      <button class="btn btn-primary mt-3" type="submit">
         Create Account
       </button>
     </form>
@@ -98,4 +101,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+ 
+</style>
