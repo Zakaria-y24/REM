@@ -19,7 +19,7 @@ namespace Capstone.DAO
         {
             List<Property> properties = new List<Property>();
 
-            const string SELECT = "SELECT property_id, property_address, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties";
+            const string SELECT = "SELECT property_id, property_street, property_city, property_state, property_zipcode, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -36,7 +36,10 @@ namespace Capstone.DAO
                             Property property = new Property();
 
                             property.Id = Convert.ToInt32(reader["property_id"]);
-                            property.Address = Convert.ToString(reader["property_address"]);
+                            property.Street = Convert.ToString(reader["property_street"]);
+                            property.City = Convert.ToString(reader["property_city"]);
+                            property.State = Convert.ToString(reader["property_state"]);
+                            property.Zipcode = Convert.ToInt32(reader["property_zipcode"]);
                             property.Name = Convert.ToString(reader["property_name"]);
                             property.Beds = Convert.ToInt32(reader["property_beds"]);
                             property.Baths = Convert.ToInt32(reader["property_baths"]);
@@ -58,13 +61,16 @@ namespace Capstone.DAO
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                const string sql = "INSERT INTO properties (property_address, property_name, property_beds,property_baths, property_size,property_owner, property_isAvailable) " +
-                    "VALUES(@address,@name, @beds, @baths,@size,@ownerId, @IsAvailable); SELECT @@IDENTITY;";
+                const string sql = "INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) " +
+                    "VALUES(@street, @city, @state, @zipcode, @name, @beds, @baths,@size,@ownerId, @IsAvailable); SELECT @@IDENTITY;";
 
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
-                    command.Parameters.AddWithValue("@address", itemTOAdd.Address);
+                    command.Parameters.AddWithValue("@street", itemTOAdd.Street);
                     command.Parameters.AddWithValue("@ownerId", userId);
+                    command.Parameters.AddWithValue("@state", itemTOAdd.State);
+                    command.Parameters.AddWithValue("@city", itemTOAdd.City);
+                    command.Parameters.AddWithValue("@zipcode", itemTOAdd.Zipcode);
                     command.Parameters.AddWithValue("@beds", itemTOAdd.Beds);
                     command.Parameters.AddWithValue("@baths", itemTOAdd.Baths);
                     command.Parameters.AddWithValue("@name", itemTOAdd.Name);
