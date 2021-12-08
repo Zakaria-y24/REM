@@ -41,14 +41,19 @@ CREATE TABLE properties(
 CREATE TABLE applicants(
 applicant_id int IDENTITY (1,1) NOT NULL,
 applicant_name nvarchar(25) NOT NULL,
-applicant_social_hash nvarchar(20)  NOT NULL,
+applicant_social_hash nvarchar(200)  NOT NULL,
+applicant_social_salt varchar(200) NOT NULL,
+applicant_birthDate Date NOT NULL,
+applicant_email nvarchar(100) NOT NULL,
 applicant_address nvarchar(50) NOT NULL,
 applicant_hasPets bit NOT NULL,
 applicant_salary decimal NOT NULL,
 applicant_phone nvarchar(15),
 applicant_property int NOT NULL,
+applicant_user_id int NOT NULL,
 CONSTRAINT PK_applicant PRIMARY KEY (applicant_id),
-CONSTRAINT FK_applicant_property_properties_property_id FOREIGN KEY(applicant_property) REFERENCES properties(property_id)
+CONSTRAINT FK_applicant_property_properties_property_id FOREIGN KEY(applicant_property) REFERENCES properties(property_id),
+CONSTRAINT FK_applicant_user_id_users_user_id FOREIGN KEY (applicant_user_id)REFERENCES users(user_id)
 )
 -- Populate default data for testing: user and admin with password of 'password'
 -- These values should not be kept when going to Production
@@ -67,5 +72,11 @@ INSERT INTO properties (property_street,property_city,property_state,property_zi
 ('2312 Far Away Dr','Honolulu','Hawaii',96795,'House3', 1, 1, 2500, 1, 1);
 INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
 ('3746 Somewhere Close','Westerville','Ohio',43081,'House4',3,2, 1598, 1, 1);
-SELECT * from properties
 
+SELECT applicant_id, applicant_name, applicant_social_hash,applicant_social_salt, applicant_birthDate, applicant_email, applicant_address, applicant_hasPets, applicant_salary, applicant_phone, applicant_property, applicant_user_id FROM applicants
+SELECT * from applicants
+INSERT INTO applicants (applicant_name, applicant_social_hash, applicant_social_salt, applicant_birthDate, applicant_email, applicant_address, applicant_hasPets, applicant_salary, applicant_phone, applicant_property, applicant_user_id) 
+VALUES ('John Smith','2312121', 'lskjdfoisdj3232','01/01/1990','user2@gmail.com','2900 Broad View Ln, Columbus Oh 43223', 0, 50000.00, '6147374848', 1000, 3);
+ 
+
+SELECT * FROM applicants

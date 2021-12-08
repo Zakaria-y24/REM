@@ -17,6 +17,7 @@ namespace Capstone.Models
         public int Baths { get; set; }
         public int Size { get; set; }
         public int OwnerId { get; set;}
+        public int UserId { get; set; }
         public bool IsAvailable { get; set; }
 
 

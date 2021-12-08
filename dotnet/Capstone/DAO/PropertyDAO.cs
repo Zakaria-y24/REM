@@ -10,7 +10,7 @@ namespace Capstone.DAO
     public class PropertyDAO : IPropertyDAO
     {
         private string connectionString;
-        private static List<Property> Properties { get; set; }
+        
         public PropertyDAO(string connectionString)
         {
             this.connectionString = connectionString;

@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace Capstone.Models
 {
-    public class Apllicant
+    public class Applicant
     {
         public int ApllicantId { get; set; }
         public string Name { get; set; }
-        public string SocialHash { get; set; }
+        public int Social { get; set; }
         public DateTime BirthDate { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }

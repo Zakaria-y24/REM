@@ -1,7 +1,7 @@
 <template> 
   <div>
       <h4>Add Property</h4>
-       <form v-on:submit="addNewProperty()">
+       <form v-on:submit.prevent="addNewProperty()">
         <div class="mb-3">
             <label for="street" class="form-label"></label>
             <input type="text" class="form-control" id="street" 
@@ -59,7 +59,6 @@
                    placeholder="Enter Size of Property in Sqft">
         </div>
         <div>
-            Is the Property Available to Rent or Buy?
         <input type="radio" :value="true" v-model="newProperty.isAvailable"> yes
         <input type="radio" :value="false" v-model="newProperty.isAvailable"> no
         </div>
@@ -77,12 +76,9 @@
 import PropertyService from '../services/PropertyService.js'
 
 export default {
- props: {
-        properties: Array,
-    },
+
 data() {
         return {
-          
             newProperty: {
                 Street: '',
                 City: '',
