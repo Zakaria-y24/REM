@@ -31,8 +31,5 @@ export default {
 </script>
 
 <style>
-  li div.property-name {
-    background-color: red;
-    flex-shrink: inherit;
-  }
+
 </style>
