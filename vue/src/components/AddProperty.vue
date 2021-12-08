@@ -37,8 +37,10 @@
                    required 
                    placeholder="Enter Size of Property in Sqft">
         </div>
-       
-
+        <div>
+        <input type="radio" :value="true" v-model="isAvailable"> yes
+        <input type="radio" :value="false" v-model="isAvailable"> no
+        </div>
         <button type="submit" class="btn btn-success">
             Submit
         </button>
@@ -64,7 +66,7 @@ data() {
                 Beds: '',
                 Baths: '',
                 Size: '',
-                isAvailable: ''
+                isAvailable: false
 
             },
             showError: false,
@@ -92,7 +94,7 @@ data() {
                 Beds: '',
                 Baths: '',
                 Size: '',
-                isAvailable: ''
+                isAvailable: false
                 }
             }})
             .catch(response => {
