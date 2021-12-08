@@ -25,7 +25,7 @@ namespace Capstone.Controllers
 
 
         [HttpPost]
-        [Authorize]
+        [Authorize ("admin")]
         public ActionResult AddProperty(Property property)
         {
 
