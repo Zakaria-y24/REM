@@ -1,7 +1,7 @@
 <template> 
   <div>
       <h4>Add Property</h4>
-       <form v-on:submit.prevent="addNewProperty()">
+       <form v-on:submit="addNewProperty()">
         <div class="mb-3">
             <label for="street" class="form-label"></label>
             <input type="text" class="form-control" id="street" 
@@ -106,7 +106,10 @@ data() {
                 this.properties.push(newItem);
 
                 this.newProperty = {
-                Address: '',
+                Street: '',
+                City: '',
+                State: '',
+                Zipcode: '',
                 Name: '',
                 Beds: '',
                 Baths: '',
