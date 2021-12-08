@@ -4,12 +4,11 @@
     <h2> List of Available Properties</h2>
     <ul class="list-group">
       <properties-list
-      
       v-for="properties of properties"
       v-bind:key="properties.id"
-      v-bind:properties="properties" 
+      v-bind:properties="properties"      
       />
-      <add-property v-bind:addedProperties="properties" v-if="isLoggedIn" />
+      <add-property v-bind:addedProperties="properties" v-if="isLoggedIn && isAdmin"/>
     </ul>
   </div>
 </template>
@@ -58,7 +57,7 @@ export default {
              this.$store.state.user.role === 'admin';
     }
   },  
-  
+
 };
 </script>
 <style>
