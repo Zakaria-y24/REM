@@ -26,7 +26,7 @@ namespace Capstone.DAO
                 conn.Open();
                 const string sql = "INSERT INTO applicants(applicant_name, applicant_social, applicant_birthDate, applicant_email, applicant_address, applicant_hasPets, applicant_salary, applicant_phone, applicant_property, applicant_user_id) VALUES(@name, @social, @birthdate, @email, @address, @hasPets, @salary, @phoneNumber, @propertyId, @user_id); SELECT @@IDENTITY;";
 
-                
+
 
 
                 using (SqlCommand command = new SqlCommand(sql, conn))
@@ -66,30 +66,30 @@ namespace Capstone.DAO
                 SqlCommand command = new SqlCommand(SELECT, conn);
                 command.Parameters.AddWithValue("@user_id", userId);
 
-                using (SqlCommand cmd = new SqlCommand(SELECT, conn))
+
+
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                   
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            Applicant applicant = new Applicant();
+                        Applicant applicant = new Applicant();
 
-                            applicant.ApllicantId = Convert.ToInt32(reader["applicant_id"]);
-                            applicant.Name = Convert.ToString(reader["applicant_name"]);
-                            applicant.Social = Convert.ToInt32(reader["applicant_social"]);
-                            applicant.BirthDate = Convert.ToDateTime(reader["applicant_birthDate"]);
-                            applicant.Email = Convert.ToString(reader["applicant_email"]);
-                            applicant.Address = Convert.ToString(reader["applicant_address"]);
-                            applicant.HasPets = Convert.ToBoolean(reader["applicant_hasPets"]);
-                            applicant.Salary = Convert.ToInt32(reader["applicant_salary"]);
-                            applicant.PhoneNumber = Convert.ToString(reader["applicant_phone"]);
-                            applicant.PropertyId = Convert.ToInt32(reader["applicant_property"]);
-                            applicants.Add(applicant);
-                        }
+                        applicant.ApllicantId = Convert.ToInt32(reader["applicant_id"]);
+                        applicant.Name = Convert.ToString(reader["applicant_name"]);
+                        applicant.Social = Convert.ToInt32(reader["applicant_social"]);
+                        applicant.BirthDate = Convert.ToDateTime(reader["applicant_birthDate"]);
+                        applicant.Email = Convert.ToString(reader["applicant_email"]);
+                        applicant.Address = Convert.ToString(reader["applicant_address"]);
+                        applicant.HasPets = Convert.ToBoolean(reader["applicant_hasPets"]);
+                        applicant.Salary = Convert.ToInt32(reader["applicant_salary"]);
+                        applicant.PhoneNumber = Convert.ToString(reader["applicant_phone"]);
+                        applicant.PropertyId = Convert.ToInt32(reader["applicant_property"]);
+                        applicants.Add(applicant);
                     }
                 }
+
             }
 
             return applicants;

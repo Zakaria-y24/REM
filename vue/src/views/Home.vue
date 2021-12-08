@@ -8,7 +8,7 @@
       v-bind:key="properties.id"
       v-bind:properties="properties"      
       />
-      <add-property v-bind:addedProperties="properties" v-if="isLoggedIn && isAdmin"/>
+      <add-property v-bind:properties="properties" v-if="isLoggedIn && isAdmin"/>
       <application v-if="isLoggedIn && !isAdmin"/>
     </ul>
   </div>
@@ -29,10 +29,11 @@ export default {
   },
   name: "home",
   data() {
-    return {properties: [],
-    itemsToAdd: {
+    return {
+      properties: [],
+      itemsToAdd: {
       id: 0,
-      name: " ",
+      name: "",
       street: "",
       city: "",
       zipcode:"",
@@ -40,7 +41,6 @@ export default {
 
     }}
   },
-  
     created() {
       PropertiesService
       .getAllProperties()

@@ -1,5 +1,5 @@
 <template>
-  <div id="login" class="text-center">
+  <div id="login" class="text-center mt-3">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
@@ -17,6 +17,7 @@
         Thank you for registering, please sign in.
       </div>
       <div class="form-group">
+        <label for="username" class="sr-only">Username</label>
         <input
           type="text"
           id="username"
@@ -27,6 +28,8 @@
           autofocus />
       </div>
       <div class="form-group">
+       <label for="password" class="sr-only">Password</label>
+
         <input
           type="password"
           id="password"
