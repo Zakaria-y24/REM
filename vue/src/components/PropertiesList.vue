@@ -6,7 +6,9 @@
     {{ properties.name }}
   </div>
   <div class="property-address">
-    {{properties.address}}
+    {{properties.street}}
+    {{properties.city}}
+    {{properties.zipcode}}
 
   </div>
     
@@ -31,5 +33,7 @@ export default {
 </script>
 
 <style>
-
+  div {
+    text-align: center;
+  }
 </style>
