@@ -26,11 +26,12 @@ export default {
   },
   name: "home",
   data() {
-    return {properties: [],
-    itemsToAdd: {
+    return {
+      properties: [],
+      itemsToAdd: {
       id: 0,
-      name: " ",
-      address: " ",
+      name: "",
+      address: "",
       isAvailable: false
 
     }}
