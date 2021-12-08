@@ -38,8 +38,8 @@
       </div>
       <div>
         Are you a manager?
-      <input type="radio" :value="admin" v-model="user.role"> Yes
-      <input type="radio" :value="user" v-model="user.role"> no
+      <input type="radio" :value="'admin'" v-model="user.role"> Yes
+      <input type="radio" :value="'user'" v-model="user.role"> no
       </div>
       <button class="btn btn-primary" type="submit">
         Create Account
@@ -59,7 +59,7 @@ export default {
         username: '',
         password: '',
         confirmPassword: '',
-        role: 'user',
+        role: '',
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
