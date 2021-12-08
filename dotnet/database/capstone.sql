@@ -25,7 +25,10 @@ CREATE TABLE users (
 )
 CREATE TABLE properties(
 	property_id int IDENTITY (1000,1) NOT NULL,
-	property_address nvarchar (100) NOT NULL,
+	property_street nvarchar (100) NOT NULL,
+	property_city nvarchar (15) NOT NULL,
+	property_state nvarchar (12) NOT NULL,
+	property_zipcode int NOT NULL,
 	property_name nvarchar(25) NULL,
 	property_beds int NOT NULL,
 	property_baths int NOT NULL,
@@ -42,15 +45,15 @@ INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','Yh
 GO
 
 
-SELECT property_id, property_address, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties 
+SELECT property_id, property_street,property_city,property_state,property_zipcode, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties 
 
-INSERT INTO properties (property_address, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
-('2498 Hickory Pine Ln','House1',3,2, 1598, 1, 1);
-INSERT INTO properties (property_address, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
-('2907 N High St','House2', 4, 2, 2000, 1, 1);
-INSERT INTO properties (property_address, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
-('2312 Far Away Dr','House3', 1, 1, 2500, 1, 1);
-INSERT INTO properties (property_address, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
-('3746 Somewhere Close','House4',3,2, 1598, 1, 1);
+INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
+('2498 Hickory Pine Ln','Columbus','Georgia',31801,'House1',3,2, 1598, 1, 1);
+INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
+('2907 N High St','Columbus','Ohio',43225,'House2', 4, 2, 2000, 1, 1);
+INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
+('2312 Far Away Dr','Honolulu','Hawaii',96795,'House3', 1, 1, 2500, 1, 1);
+INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
+('3746 Somewhere Close','Westerville','Ohio',43081,'House4',3,2, 1598, 1, 1);
 SELECT * from properties
 
