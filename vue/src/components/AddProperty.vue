@@ -77,7 +77,7 @@ import PropertyService from '../services/PropertyService.js'
 
 export default {
  props: {
-        properties: [],
+        properties: Object,
     },
 data() {
         return {
