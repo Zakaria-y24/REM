@@ -9,7 +9,7 @@
       v-bind:key="properties.id"
       v-bind:properties="properties" 
       />
-      <add-property v-bind:addedProperties="properties" />
+      <add-property v-bind:addedProperties="properties" v-if="isLoggedIn" />
     </ul>
   </div>
 </template>
@@ -48,6 +48,15 @@ export default {
         console.error("could not get properties", response);
       });
     },
+    computed: {
+    isLoggedIn() {
+      return this.$store.state.token;
+    },
+    isAdmin() {
+      return this.$store.state.user && 
+             this.$store.state.user.role === 'admin';
+    }
+  },
   
 };
 </script>
