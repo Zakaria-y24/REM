@@ -9,7 +9,11 @@
       v-bind:properties="properties"      
       />
       <add-property v-bind:properties="properties" v-if="isLoggedIn && isAdmin"/>
+<<<<<<< HEAD
       <application v-if="isLoggedIn && !isAdmin"/>
+=======
+      <application  v-if="isLoggedIn && !isAdmin"/>
+>>>>>>> 54d7fff3e6977318278d16a87f39d682257c01a9
     </ul>
   </div>
 </template>
@@ -17,15 +21,17 @@
 <script>
 import PropertiesList from '../components/PropertiesList.vue';
 import PropertiesService from '../services/PropertyService.js';
-import AddProperty from '../components/AddProperty';
+import AddProperty from '../components/AddProperty.vue';
 import Application from '../components/Application.vue';
+
 
 
 export default {
   components: {
     PropertiesList,
     AddProperty,
-    Application
+    Application,
+
   },
   name: "home",
   data() {
