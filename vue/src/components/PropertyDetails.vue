@@ -116,7 +116,6 @@ export default {
                 this.application = {
                 name: '',
                 address: '',
-                social: '',
                 hasPets: false,
                 salary: 0,
                 phoneNumber: '',

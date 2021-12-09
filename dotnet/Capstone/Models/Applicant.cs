@@ -7,7 +7,7 @@ namespace Capstone.Models
 {
     public class Applicant
     {
-        public int ApllicantId { get; set; }
+        public int ApplicantId { get; set; }
         public string Name { get; set; }
         public int Social { get; set; }
         public DateTime Date { get; set; } = DateTime.Now.Date;
