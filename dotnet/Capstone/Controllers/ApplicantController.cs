@@ -34,7 +34,7 @@ namespace Capstone.Controllers
 
             Applicant addedApplicant = applicants.AddApplicant(userId, applicant);
 
-            return Created("/application/" + addedApplicant.ApllicantId, addedApplicant);
+            return Created("/application/" + addedApplicant.ApplicantId, addedApplicant);
 
         }
         [HttpGet]

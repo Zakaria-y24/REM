@@ -37,7 +37,7 @@
         <div class="mb-3">
             <label for="social" class="form-label"></label>
             <input type="text" class="form-control" id="social" 
-                    v-model.number="application.social"
+                    v-model.trim="application.social"
                    required 
                    placeholder="Enter your Social Security Number">
         </div>
@@ -115,8 +115,8 @@ export default {
 
                 this.application = {
                 name: '',
-                address: '',
                 social: '',
+                address: '',
                 hasPets: false,
                 salary: 0,
                 phoneNumber: '',

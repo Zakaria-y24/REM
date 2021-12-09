@@ -47,7 +47,7 @@ namespace Capstone.DAO
                     command.Parameters.AddWithValue("@status", itemTOAdd.Status);
 
                     int newRowId = Convert.ToInt32(command.ExecuteScalar());
-                    itemTOAdd.ApllicantId = newRowId;
+                    itemTOAdd.ApplicantId = newRowId;
 
                 }
 
@@ -78,9 +78,9 @@ namespace Capstone.DAO
                     {
                         Applicant applicant = new Applicant();
 
-                        applicant.ApllicantId = Convert.ToInt32(reader["applicant_id"]);
+                        applicant.ApplicantId = Convert.ToInt32(reader["applicant_id"]);
                         applicant.Name = Convert.ToString(reader["applicant_name"]);
-                        applicant.Social = Convert.ToInt32(reader["applicant_social"]);
+                        applicant.Social = Convert.ToString(reader["applicant_social"]);
                         applicant.BirthDate = Convert.ToDateTime(reader["applicant_birthDate"]);
                         applicant.Date = Convert.ToDateTime(reader["applicant_date"]).Date;
                         applicant.Email = Convert.ToString(reader["applicant_email"]);
