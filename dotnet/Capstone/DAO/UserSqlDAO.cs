@@ -46,6 +46,7 @@ namespace Capstone.DAO
             IPasswordHasher passwordHasher = new PasswordHasher();
             PasswordHash hash = passwordHasher.ComputeHash(password);
 
+            
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
