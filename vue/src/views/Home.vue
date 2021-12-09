@@ -8,7 +8,7 @@
       v-bind:key="properties.id"
       v-bind:properties="properties"      
       />
-      <add-property v-bind:addedProperties="properties" v-if="isLoggedIn && isAdmin"/>
+      <add-property v-bind:properties="properties" v-if="isLoggedIn && isAdmin"/>
       <application v-if="isLoggedIn && !isAdmin"/>
     </ul>
   </div>
@@ -17,7 +17,7 @@
 <script>
 import PropertiesList from '../components/PropertiesList.vue';
 import PropertiesService from '../services/PropertyService.js';
-import AddProperty from '../components/AddProperty';
+import AddProperty from '../components/AddProperty.vue';
 import Application from '../components/Application.vue';
 
 
