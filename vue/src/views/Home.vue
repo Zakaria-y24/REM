@@ -31,8 +31,9 @@ export default {
   },
   name: "home",
   data() {
-    return {properties: [],
-    itemsToAdd: {
+    return {
+      properties: [],
+      itemsToAdd: {
       id: 0,
       name: " ",
       street: "",

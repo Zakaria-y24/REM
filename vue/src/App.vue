@@ -7,8 +7,11 @@
       <router-link class="nav-item" v-bind:to="{ name: 'home' }">
         <i class="fas fa-home"></i> <!-- This is a font awesome icon -->
         Home 
+      </router-link> |
+      <router-link class="nav-item" v-bind:to="{name:'search'}">
+        Search  
       </router-link>
-      <router-link
+        <router-link
         class="nav-item"
         v-bind:to="{ name: 'register' }"
         v-if="!$store.state.token">&nbsp;|&nbsp;Register</router-link>
