@@ -40,9 +40,9 @@ CREATE TABLE properties(
 )
 CREATE TABLE applicants(
 applicant_id int IDENTITY (1,1) NOT NULL,
-applicant_name nvarchar(25) NOT NULL,
+applicant_name nvarchar(50) NOT NULL,
 applicant_date Date NOT NULL,
-applicant_social int NOT NULL,
+applicant_social nvarchar(12) NOT NULL,
 applicant_birthDate Date NOT NULL,
 applicant_email nvarchar(100) NOT NULL,
 applicant_address nvarchar(50) NOT NULL,
