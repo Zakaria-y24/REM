@@ -1,5 +1,5 @@
 <template>
-  <div class="tag-container w-100 d-flex justify-content-center">
+  <div class="tag-container d-flex justify-content-center">
     
     <h1 class="text-white align-self-center">Find your next home</h1>
     

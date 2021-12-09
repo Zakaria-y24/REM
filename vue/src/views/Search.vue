@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 form {
 display: flex;
 flex-direction: column;
@@ -40,5 +40,7 @@ input{
 label{
     display:flex;
 }
-
+button {
+    color: white;
+}
 </style>

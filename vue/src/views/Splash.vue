@@ -16,7 +16,7 @@
           v-bind:properties="properties"
           v-if="isLoggedIn && isAdmin"
         />
-        <property-details v-if="isLoggedIn && !isAdmin" />
+        <property-details v-if="!isLoggedIn && !isAdmin" />
       </div>
     </div>
   </div>
