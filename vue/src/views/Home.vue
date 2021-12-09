@@ -9,7 +9,6 @@
       v-bind:properties="properties"      
       />
       <add-property v-bind:properties="properties" v-if="isLoggedIn && isAdmin"/>
-      
     </ul>
   </div>
 </template>

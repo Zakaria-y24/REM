@@ -13,15 +13,6 @@
     
 
   </div>
-    
-
-    <span
-      v-bind:class="{
-        
-      }"
-    >
-      
-    </span>
   </li>
 </template>
 
