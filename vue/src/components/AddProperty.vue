@@ -78,7 +78,7 @@ import PropertyService from '../services/PropertyService.js'
 
 export default {
 props:{
-    properties: Array,
+    addedProperties: Array
 },
 data() {
         return {
@@ -105,7 +105,7 @@ data() {
             .addProperty(this.newProperty)
             .then(response => {
                 const newItem = response.data;
-                this.properties.push(newItem);
+                this.addedProperties.push(newItem);
                 
                 this.newProperty = {
                 Street: '',
