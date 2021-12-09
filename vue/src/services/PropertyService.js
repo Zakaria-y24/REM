@@ -7,6 +7,8 @@ export default {
     },
     addProperty(property) {
          return axios.post('/properties', property);
+    },
+    searchProperty(){
+        return axios.get('/search');
     }
-
 }

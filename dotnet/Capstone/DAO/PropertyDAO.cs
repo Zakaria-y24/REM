@@ -86,7 +86,7 @@ namespace Capstone.DAO
             return itemTOAdd;
 
         }
-        public IEnumerable<Property> SearchProperties()
+        public IEnumerable<Property> SearchProperties(string zipcode, string beds, string baths)
         {
             List<Property> properties = new List<Property>();
 
@@ -101,7 +101,9 @@ namespace Capstone.DAO
 
                 using (SqlCommand command = new SqlCommand(SELECT, conn))
                 {
-                    // Set parameters for my SQL here
+                    command.Parameters.AddWithValue("@zipcode", zipcode);
+                    command.Parameters.AddWithValue("@beds", beds);
+                    command.Parameters.AddWithValue("@baths", baths);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {

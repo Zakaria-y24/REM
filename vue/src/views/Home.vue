@@ -8,12 +8,8 @@
       v-bind:key="properties.id"
       v-bind:properties="properties"      
       />
-      <add-property v-bind:properties="properties" v-if="isLoggedIn && isAdmin"/>
-<<<<<<< HEAD
+      <add-property v-bind:addedProperties="properties" v-if="isLoggedIn && isAdmin"/>
       <application v-if="isLoggedIn && !isAdmin"/>
-=======
-      <application  v-if="isLoggedIn && !isAdmin"/>
->>>>>>> 54d7fff3e6977318278d16a87f39d682257c01a9
     </ul>
   </div>
 </template>
