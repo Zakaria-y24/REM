@@ -1,7 +1,7 @@
 <template>
   <section>
     <h2> Search for Apartments</h2>
-    <form>
+    <form v-on:submit.prevent="searchProperties()">
         <label for="zipcode"> Zipcode </label>
         <input type = "text" id = "zipcode" /> 
 
@@ -23,6 +23,15 @@
 
 <script>
 export default {
+    props:{
+        addedProperties: Array,
+    },
+
+    methods:{
+    searchProperties(addedProperties){
+        return this.addedProperties.filter(item => item.zipcode== addedProperties.zipcode && item.beds ==addedProperties.beds && item.baths == addedProperties.baths);
+    }
+    }
 
 }
 </script>
