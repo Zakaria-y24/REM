@@ -68,4 +68,4 @@ INSERT INTO properties (property_street,property_city,property_state,property_zi
 INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
 ('3746 Somewhere Close','Westerville','Ohio',43081,'House4',3,2, 1598, 1, 1);
 SELECT * from properties
-
+SELECT * from applicants
