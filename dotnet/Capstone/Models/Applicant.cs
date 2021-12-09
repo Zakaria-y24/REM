@@ -19,5 +19,6 @@ namespace Capstone.Models
         public decimal Salary { get; set; }
         public string PhoneNumber { get; set; }
         public int PropertyId { get; set; }
+
     }
 }
