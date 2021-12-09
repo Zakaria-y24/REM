@@ -25,7 +25,7 @@ namespace Capstone.Controllers
 
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "admin")]
         public ActionResult AddProperty(Property property)
         {
 
@@ -47,7 +47,14 @@ namespace Capstone.Controllers
             return Ok(results);
         }
 
+        [HttpGet("/search")]
+        [AllowAnonymous]
+        public ActionResult SearchProperties(string zipcode, string beds, string baths)
+        {
+            IEnumerable<Property> results = properties.SearchProperties(zipcode, beds, baths);
 
+            return Ok(results);
+        }
 
     }
 }

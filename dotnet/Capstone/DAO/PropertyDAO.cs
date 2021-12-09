@@ -86,5 +86,49 @@ namespace Capstone.DAO
             return itemTOAdd;
 
         }
+        public IEnumerable<Property> SearchProperties(string zipcode, string beds, string baths)
+        {
+            List<Property> properties = new List<Property>();
+
+            const string SELECT = "SELECT property_id, property_street, property_city, "+
+                "property_state, property_zipcode, property_name, "+
+                "property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties "+
+                "WHERE property_zipcode = @zipcode AND property_beds >= @beds AND property_baths >= @baths";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                using (SqlCommand command = new SqlCommand(SELECT, conn))
+                {
+                    command.Parameters.AddWithValue("@zipcode", zipcode);
+                    command.Parameters.AddWithValue("@beds", beds);
+                    command.Parameters.AddWithValue("@baths", baths);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Property property = new Property();
+
+                            property.Id = Convert.ToInt32(reader["property_id"]);
+                            property.Street = Convert.ToString(reader["property_street"]);
+                            property.City = Convert.ToString(reader["property_city"]);
+                            property.State = Convert.ToString(reader["property_state"]);
+                            property.Zipcode = Convert.ToInt32(reader["property_zipcode"]);
+                            property.Name = Convert.ToString(reader["property_name"]);
+                            property.Beds = Convert.ToInt32(reader["property_beds"]);
+                            property.Baths = Convert.ToInt32(reader["property_baths"]);
+                            property.Size = Convert.ToInt32(reader["property_size"]);
+                            property.OwnerId = Convert.ToInt32(reader["property_owner"]);
+                            property.IsAvailable = Convert.ToBoolean(reader["property_isAvailable"]);
+                            properties.Add(property);
+                        }
+                    }
+                }
+            }
+
+            return properties;
+        }
     }
 }
