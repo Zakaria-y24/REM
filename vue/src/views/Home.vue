@@ -26,14 +26,14 @@
 import PropertiesList from "../components/PropertiesList.vue";
 import PropertiesService from "../services/PropertyService.js";
 import AddProperty from "../components/AddProperty.vue";
-import Application from "../components/Application.vue";
+// import Application from "../components/Application.vue";
 import SplashPage from "../components/SplashPage.vue";
 
 export default {
   components: {
     PropertiesList,
     AddProperty,
-    Application,
+    // Application,
     SplashPage,
   },
   name: "home",
