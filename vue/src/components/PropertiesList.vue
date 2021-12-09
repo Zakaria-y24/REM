@@ -1,7 +1,5 @@
 <template>
     <div>
-
-    <p>Please Click on House Name for more information and to Apply</p>
     <li
     class="list-group-item  justify-content-between align-items-center" v-if="properties.isAvailable == true">
   <div class="property-name">
