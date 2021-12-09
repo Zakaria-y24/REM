@@ -2,13 +2,16 @@
      Note that you have classes from bootstrap available to you.
      See https://getbootstrap.com/docs/4.5/getting-started/introduction/ for reference on bootstrap -->
 <template>
-  <div id="app" class="container"> <!-- If you start to get random styling you don't like, remove container from this div -->
-    <div id="nav">
+  <div id="app"> <!-- If you start to get random styling you don't like, remove container from this div -->
+    <div id="nav" class="bg-white">
       <router-link class="nav-item" v-bind:to="{ name: 'home' }">
         <i class="fas fa-home"></i> <!-- This is a font awesome icon -->
         Home 
+      </router-link> |
+      <router-link class="nav-item" v-bind:to="{name:'search'}">
+        Search  
       </router-link>
-      <router-link
+        <router-link
         class="nav-item"
         v-bind:to="{ name: 'register' }"
         v-if="!$store.state.token">&nbsp;|&nbsp;Register</router-link>
