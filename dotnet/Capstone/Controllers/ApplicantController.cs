@@ -47,6 +47,16 @@ namespace Capstone.Controllers
 
             return Ok(results);
         }
+        [HttpGet("properties")]
+        [Authorize(Roles = "admin")]
+        public ActionResult OwnerGetApplications()
+        {
+            int userId = int.Parse(this.User.FindFirst("sub").Value);
+
+            IEnumerable<Applicant> results = applicants.OwnerGetAllApplicants(userId);
+
+            return Ok(results);
+        }
 
 
 

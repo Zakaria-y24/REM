@@ -10,12 +10,15 @@
       </router-link> |
       <router-link class="nav-item" v-bind:to="{name:'search'}">
         Search  
-      </router-link> |
-      <router-link class="nav-item" v-bind:to="{name:'AddPropertyView'}">
-        Add A Property  
-      </router-link> |
-      <router-link class="nav-item" v-bind:to="{name:'MyApplicationsView'}">
-        My Applications  
+      </router-link> 
+      <router-link v-if="isLoggedIn && isAdmin" class="nav-item" v-bind:to="{name:'AddPropertyView'}">
+       | Add A Property  
+      </router-link> 
+      <router-link v-if="isLoggedIn && !isAdmin" class="nav-item" v-bind:to="{name:'MyApplicationsView'}">
+       | My Applications  
+      </router-link> 
+      <router-link v-if="isLoggedIn && isAdmin" class="nav-item" v-bind:to="{name:'ManagerApplicationsView'}">
+       | Manage Applications  
       </router-link>
         <router-link
         class="nav-item"
@@ -41,7 +44,14 @@
 
 <script>
 export default {
-  
+  computed: {
+    isLoggedIn() {
+      return this.$store.state.token;
+    },
+    isAdmin() {
+      return this.$store.state.user && this.$store.state.user.role === "admin";
+    },
+  },
 }
 </script>
 
