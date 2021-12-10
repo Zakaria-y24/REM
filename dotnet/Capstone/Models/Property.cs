@@ -12,6 +12,8 @@ namespace Capstone.Models
         public string City { get; set; }
         public string State { get; set; }
         public int Zipcode { get; set; }
+        public string Type { get; set; }
+        public string Description { get; set; }
         public string Name { get; set; }
         public int Beds { get; set; }
         public int Baths { get; set; }
