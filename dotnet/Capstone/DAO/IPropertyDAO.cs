@@ -8,5 +8,6 @@ namespace Capstone.DAO
         IEnumerable<Property> GetAllProperties();
         Property AddProperty(int userId, Property itemTOAdd);
         IEnumerable<Property> SearchProperties(string zipcode, string beds, string baths);
+        IEnumerable<Property> GetAllMyProperties(int userId);
     }
 }

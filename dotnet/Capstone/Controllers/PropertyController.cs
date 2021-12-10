@@ -46,6 +46,16 @@ namespace Capstone.Controllers
 
             return Ok(results);
         }
+        [HttpGet("myproperties")]
+        [Authorize(Roles = "admin")]
+        public ActionResult GetAllMyProperties()
+        {
+            int userId = int.Parse(this.User.FindFirst("sub").Value);
+
+            IEnumerable<Property> results = properties.GetAllMyProperties(userId);
+
+            return Ok(results);
+        }
 
         [HttpGet("/search")]
         [AllowAnonymous]
