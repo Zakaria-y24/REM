@@ -1,10 +1,13 @@
 <template>
-  <section class="property details">
+<div class="property-background">
+  <section v-if="property" class="property-details">
       <h1 class="property-name"> {{ property.name }} </h1>
       
-      <h2 class="property-street"> {{ property.street }} </h2>
-      <h2 class="property-city"> {{ property.city }} </h2>
-      <h2 class="property-zipcode"> {{ property.zipcode }} </h2>
+      <h4 class="property-street"> {{ property.street }} </h4>
+      <h4 class="property-city"> {{ property.city }} </h4>
+      <h4 class="property-zipcode"> {{ property.zipcode }} </h4>
+      <h4 class="property-type"> {{ property.type }} </h4>
+      <p class="property-description"> {{ property.description }} </p>
       <button v-if="!enableAdd && isLoggedIn && !applicationSubmitted" v-on:click.prevent="enableAdd = true;" class="btn btn-primary" type="click">Click Here If You Would Like To Apply</button>
       <span v-if="!isLoggedIn">
           <p>Please Register or Log In if you would like to apply for this property</p>
@@ -32,7 +35,7 @@
             <input type="text" class="form-control" id="birthDate" 
                     v-model.trim="application.birthDate"
                    required 
-                   placeholder="Enter Date of Birth">
+                   placeholder="Enter Date of Birth in yyyy-mm-dd format">
         </div>
         <div class="mb-3">
             <label for="social" class="form-label"></label>
@@ -72,6 +75,7 @@
           </button>
          </form>
   </section>
+</div>
 </template>
 <script>
 import ApplicationService from '../services/ApplicationService.js' 
@@ -145,4 +149,21 @@ export default {
 </script>
 <style>
 
+  .property-details {
+    text-align: center;
+    color: white;
+    width: 300px;
+  border: 15px solid #76BFED;
+  padding: 50px;
+  margin: 20px;
+  
+ 
+  }
+  .property-background {
+      height: 100vh;
+      background-image: url("https://external-preview.redd.it/orB818nEmNCypKfxPNQSVxOFIg6q8iNsvYGwMgk6Irg.jpg?auto=webp&s=1e3519053e8c865fc82667770e58d0d9469343d9") ;
+  }
+  /* body {
+    background-image: url("https://external-preview.redd.it/orB818nEmNCypKfxPNQSVxOFIg6q8iNsvYGwMgk6Irg.jpg?auto=webp&s=1e3519053e8c865fc82667770e58d0d9469343d9") ;
+  } */
 </style>

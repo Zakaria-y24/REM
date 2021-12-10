@@ -19,7 +19,7 @@ namespace Capstone.DAO
         {
             List<Property> properties = new List<Property>();
 
-            const string SELECT = "SELECT property_id, property_street, property_city, property_state, property_zipcode, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties";
+            const string SELECT = "SELECT property_id, property_street, property_city, property_state, property_zipcode, property_type, property_description, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -40,6 +40,8 @@ namespace Capstone.DAO
                             property.City = Convert.ToString(reader["property_city"]);
                             property.State = Convert.ToString(reader["property_state"]);
                             property.Zipcode = Convert.ToInt32(reader["property_zipcode"]);
+                            property.Type = Convert.ToString(reader["property_type"]);
+                            property.Description = Convert.ToString(reader["property_description"]);
                             property.Name = Convert.ToString(reader["property_name"]);
                             property.Beds = Convert.ToInt32(reader["property_beds"]);
                             property.Baths = Convert.ToInt32(reader["property_baths"]);
@@ -61,8 +63,8 @@ namespace Capstone.DAO
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                const string sql = "INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) " +
-                    "VALUES(@street, @city, @state, @zipcode, @name, @beds, @baths,@size,@ownerId, @IsAvailable); SELECT @@IDENTITY;";
+                const string sql = "INSERT INTO properties (property_street,property_city,property_state,property_zipcode,property_type,property_description, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) " +
+                    "VALUES(@street, @city, @state, @zipcode,@type, @description, @name, @beds, @baths,@size,@ownerId, @IsAvailable); SELECT @@IDENTITY;";
 
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
@@ -71,6 +73,8 @@ namespace Capstone.DAO
                     command.Parameters.AddWithValue("@state", itemTOAdd.State);
                     command.Parameters.AddWithValue("@city", itemTOAdd.City);
                     command.Parameters.AddWithValue("@zipcode", itemTOAdd.Zipcode);
+                    command.Parameters.AddWithValue("@type", itemTOAdd.City);
+                    command.Parameters.AddWithValue("@description", itemTOAdd.Description);
                     command.Parameters.AddWithValue("@beds", itemTOAdd.Beds);
                     command.Parameters.AddWithValue("@baths", itemTOAdd.Baths);
                     command.Parameters.AddWithValue("@name", itemTOAdd.Name);
