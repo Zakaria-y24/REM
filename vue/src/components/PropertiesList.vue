@@ -5,7 +5,7 @@
   <img src="../../images/image-placeholder.jpg" class="card-img-top">
   <div class="card-body">
     <p class="card-text">
-      {{ properties.name }}</p>
+      </p> <router-link v-bind:to="{name: 'PropertyInfo', params: { id: properties.id}}">{{ properties.name }}</router-link>
     <p class="card-text"> 
       {{properties.street}}
     {{properties.city}}
