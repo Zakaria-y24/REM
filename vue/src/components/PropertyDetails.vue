@@ -128,6 +128,7 @@ export default {
                 }
                 this.enableAdd = false;
                 this.applicationSubmitted = true;
+                
         })
             .catch(response => {
                 console.error("Couldn't submit application", response)

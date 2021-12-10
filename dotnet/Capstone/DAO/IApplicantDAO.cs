@@ -7,5 +7,6 @@ namespace Capstone.DAO
     {
         Applicant AddApplicant(int userId,Applicant itemTOAdd);
         IEnumerable<Applicant> GetAllApplicants(int userId);
+        IEnumerable<Applicant> OwnerGetAllApplicants(int userId);
     }
 }

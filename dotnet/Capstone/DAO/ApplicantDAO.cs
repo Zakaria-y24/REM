@@ -98,5 +98,49 @@ namespace Capstone.DAO
 
             return applicants;
         }
+        public IEnumerable<Applicant> OwnerGetAllApplicants(int userId)
+        {
+            List<Applicant> applicants = new List<Applicant>();
+
+            const string SELECT = "SELECT applicant_id, applicant_name, applicant_social, applicant_birthDate, applicant_date, applicant_email, applicant_address, applicant_hasPets, applicant_salary, applicant_phone, applicant_property, applicant_status FROM applicants a INNER JOIN properties p ON a.applicant_property = p.property_id WHERE p.property_owner = @user_id;";   
+
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlCommand command = new SqlCommand(SELECT, conn);
+                command.Parameters.AddWithValue("@user_id", userId);
+
+
+
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Applicant applicant = new Applicant();
+
+                        applicant.ApplicantId = Convert.ToInt32(reader["applicant_id"]);
+                        applicant.Name = Convert.ToString(reader["applicant_name"]);
+                        applicant.Social = Convert.ToString(reader["applicant_social"]);
+                        applicant.BirthDate = Convert.ToDateTime(reader["applicant_birthDate"]);
+                        applicant.Date = Convert.ToDateTime(reader["applicant_date"]).Date;
+                        applicant.Email = Convert.ToString(reader["applicant_email"]);
+                        applicant.Address = Convert.ToString(reader["applicant_address"]);
+                        applicant.HasPets = Convert.ToBoolean(reader["applicant_hasPets"]);
+                        applicant.Salary = Convert.ToInt32(reader["applicant_salary"]);
+                        applicant.PhoneNumber = Convert.ToString(reader["applicant_phone"]);
+                        applicant.Status = Convert.ToString(reader["applicant_status"]);
+                        applicant.PropertyId = Convert.ToInt32(reader["applicant_property"]);
+                        applicants.Add(applicant);
+                    }
+                }
+
+            }
+
+            return applicants;
+        }
     }
 }

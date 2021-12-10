@@ -1,6 +1,6 @@
 <template>
   <div>
-     <p v-if="!isLoggedIn && !isAdmin">Please Log in or Register as a Property Owner to Add Properties</p> 
+     <p v-if="!isLoggedIn || !isAdmin">Please Log in or Register as a Property Owner to Add Properties</p> 
     <h4 v-if="isLoggedIn && isAdmin" >Add Property</h4>
     <form v-if="isLoggedIn && isAdmin" v-on:submit.prevent="addNewProperty()">
       <div class="mb-3">
@@ -42,7 +42,7 @@
           type="text"
           class="form-control"
           id="zipcode"
-          v-model.number="newProperty.Zipcode"
+          v-model.trim="newProperty.Zipcode"
           required
           placeholder="Enter Zipcode"
         />
@@ -166,11 +166,13 @@ export default {
             Size: "",
             isAvailable: false,
           };
+          this.$router.push({name: 'home'});
         })
         .catch((response) => {
           console.error("Couldn't add property", response);
           this.showError = true;
           this.errorMessage = "Couldn't add property please try again";
+          
         });
     },
   },

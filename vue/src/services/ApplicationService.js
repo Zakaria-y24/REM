@@ -7,4 +7,7 @@ export default {
     getMyApplications() {
         return axios.get('/application');
     },
+    getApplicationsForOwner() {
+        return axios.get('/application/properties');
+    },
 }
