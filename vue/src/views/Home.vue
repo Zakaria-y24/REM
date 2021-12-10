@@ -1,5 +1,7 @@
 <template>
+
   <div class="home">
+    
     <splash-page />
     <div class="properties-container">
       <h3 class="text-center mt-3">Available Properties</h3>
