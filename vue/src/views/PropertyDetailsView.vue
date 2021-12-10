@@ -43,8 +43,8 @@ export default {
 }
 </script>
 <style >
-
-  /* .PropertyDetails {
+/* 
+  .PropertyDetails {
     text-align: center;
     color: white;
     width: 300px;
