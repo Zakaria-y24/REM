@@ -29,6 +29,7 @@ CREATE TABLE properties(
 	property_city nvarchar (15) NOT NULL,
 	property_state nvarchar (12) NOT NULL,
 	property_zipcode int NOT NULL,
+	property_description nvarchar (150) NOT NULL,
 	property_name nvarchar(25) NULL,
 	property_beds int NOT NULL,
 	property_baths int NOT NULL,

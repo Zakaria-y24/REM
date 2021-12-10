@@ -5,6 +5,8 @@
       <h2 class="property-street"> {{ property.street }} </h2>
       <h2 class="property-city"> {{ property.city }} </h2>
       <h2 class="property-zipcode"> {{ property.zipcode }} </h2>
+      <h2 class="property-type"> {{ property.type }} </h2>
+      <h2 class="property-description"> {{ property.description }} </h2>
       <button v-if="!enableAdd && isLoggedIn && !applicationSubmitted" v-on:click.prevent="enableAdd = true;" class="btn btn-primary" type="click">Click Here If You Would Like To Apply</button>
       <span v-if="!isLoggedIn">
           <p>Please Register or Log In if you would like to apply for this property</p>
@@ -32,7 +34,7 @@
             <input type="text" class="form-control" id="birthDate" 
                     v-model.trim="application.birthDate"
                    required 
-                   placeholder="Enter Date of Birth">
+                   placeholder="Enter Date of Birth in yyyy-mm-dd format">
         </div>
         <div class="mb-3">
             <label for="social" class="form-label"></label>

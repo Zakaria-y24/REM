@@ -10,6 +10,9 @@
       </router-link> |
       <router-link class="nav-item" v-bind:to="{name:'search'}">
         Search  
+      </router-link> |
+      <router-link class="nav-item" v-bind:to="{name:'AddPropertyView'}">
+        Add A Property  
       </router-link>
         <router-link
         class="nav-item"
