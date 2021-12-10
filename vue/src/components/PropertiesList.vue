@@ -2,16 +2,19 @@
 
   <div class="card text-left" v-if="properties.isAvailable == true">
   
+  <router-link v-bind:to="{name: 'PropertyInfo', params: { id: properties.id}}">
   <img src="../../images/image-placeholder.jpg" class="card-img-top">
   <div class="card-body">
     <p class="card-text">
-      </p> <router-link v-bind:to="{name: 'PropertyInfo', params: { id: properties.id}}">{{ properties.name }}</router-link>
+      </p> 
+        {{ properties.name }}
     <p class="card-text"> 
       {{properties.street}}
     {{properties.city}}
     {{properties.zipcode}}
     </p>
   </div>
+  </router-link>
 </div>
 
 </template>
@@ -35,10 +38,14 @@ export default {
   padding: 0;
 }
 .card:hover{
-  border-bottom: 3px solid #E63946;
+  border-bottom: 3px solid #76BFED;
   cursor: pointer;
 }
 .card-body{
   padding: 1rem 0 1rem 0;
+}
+a{
+  text-decoration: none;
+  color: #333;
 }
 </style>
