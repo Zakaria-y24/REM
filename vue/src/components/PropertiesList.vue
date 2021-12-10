@@ -35,7 +35,8 @@ export default {
   padding: 0;
 }
 .card:hover{
-  border-bottom: 3px solid #6CB752;
+  border-bottom: 3px solid #E63946;
+  cursor: pointer;
 }
 .card-body{
   padding: 1rem 0 1rem 0;
