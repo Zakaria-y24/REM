@@ -8,7 +8,7 @@ export default {
     addProperty(property) {
          return axios.post('/properties', property);
     },
-    searchProperty(){
-        return axios.get('/search');
+    searchProperties(zipcode,beds,baths){
+        return axios.get('/search',zipcode, beds,baths);
     }
 }
