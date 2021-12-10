@@ -79,6 +79,7 @@ template{
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  display: inline;
+  display: flex;
+  justify-content: space-around;
 }
 </style>
