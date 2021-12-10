@@ -9,6 +9,6 @@ export default {
          return axios.post('/properties', property);
     },
     searchProperties(zipcode,beds,baths){
-        return axios.get('/search',zipcode, beds,baths);
+        return axios.post('/search',zipcode, beds,baths);
     }
 }

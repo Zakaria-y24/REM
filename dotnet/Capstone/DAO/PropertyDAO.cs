@@ -39,7 +39,7 @@ namespace Capstone.DAO
                             property.Street = Convert.ToString(reader["property_street"]);
                             property.City = Convert.ToString(reader["property_city"]);
                             property.State = Convert.ToString(reader["property_state"]);
-                            property.Zipcode = Convert.ToInt32(reader["property_zipcode"]);
+                            property.Zipcode = Convert.ToString(reader["property_zipcode"]);
                             property.Type = Convert.ToString(reader["property_type"]);
                             property.Description = Convert.ToString(reader["property_description"]);
                             property.Name = Convert.ToString(reader["property_name"]);
@@ -119,7 +119,7 @@ namespace Capstone.DAO
                             property.Street = Convert.ToString(reader["property_street"]);
                             property.City = Convert.ToString(reader["property_city"]);
                             property.State = Convert.ToString(reader["property_state"]);
-                            property.Zipcode = Convert.ToInt32(reader["property_zipcode"]);
+                            property.Zipcode = Convert.ToString(reader["property_zipcode"]);
                             property.Name = Convert.ToString(reader["property_name"]);
                             property.Beds = Convert.ToInt32(reader["property_beds"]);
                             property.Baths = Convert.ToInt32(reader["property_baths"]);
