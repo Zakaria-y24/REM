@@ -1,8 +1,9 @@
 <template>
   <div class="home">
+    
     <splash-page />
     <div class="properties-container">
-      <h3 class="text-center mt-3">Available Properties</h3>
+      <p class="h4 text-center mt-3">Available Properties</p>
 
       <div class="d-flex p-2 justify-content-around">
         <div class="row gap-5">
@@ -16,8 +17,11 @@
           v-bind:properties="properties"
           v-if="isLoggedIn && isAdmin"
         />
-        <property-details v-if="isLoggedIn && !isAdmin" />
+        <property-details v-if="!isLoggedIn && !isAdmin" />
       </div>
+    </div>
+    <div class="d-flex cta justify-content-center">
+      <p class="h4 mb-2 text-center align-self-center">Interested in viewing more properties? <router-link :to="{ name: 'register' }">Register for an account today!</router-link></p>
     </div>
   </div>
 </template>
@@ -73,6 +77,13 @@ export default {
 <style scoped>
 body {
   color: #333;
+}
+.cta{
+  background-color: #e2e2e2;
+  height: 10vh;
+}
+a{
+text-decoration: none;
 }
 
 </style>

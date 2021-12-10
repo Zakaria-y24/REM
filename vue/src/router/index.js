@@ -7,6 +7,7 @@ import Register from "../views/Register.vue";
 import store from "../store/index";
 import Search from '../views/Search.vue';
 import PropertyDetailsView from "../views/PropertyDetailsView.vue";
+import Splash from "../views/Splash.vue";
 
 Vue.use(Router);
 
@@ -25,6 +26,14 @@ const router = new Router({
   routes: [
     {
       path: "/",
+      name: "splash",
+      component: Splash,
+      meta: {
+        requiresAuth: false,
+      },
+    },
+    {
+      path: "/Home",
       name: "home",
       component: Home,
       meta: {
