@@ -1,16 +1,12 @@
 <template>
-<<<<<<< HEAD
-  <section v-if="property" class="property details">
-=======
 <div class="property-background">
   <section v-if="property" class="property-details">
->>>>>>> 247767cdc22bf4b02d4623a504572b1387f2761e
       <h1 class="property-name"> {{ property.name }} </h1>
       
       <h4 class="property-street"> {{ property.street }} </h4>
       <h4 class="property-city"> {{ property.city }} </h4>
       <h4 class="property-zipcode"> {{ property.zipcode }} </h4>
-      <h4 class="property-type"> {{ property.type }} </h4>
+      <h4 class="property-type"> Type of Property: {{ property.type }} </h4>
       <p class="property-description"> {{ property.description }} </p>
       <button v-if="!enableAdd && isLoggedIn && !applicationSubmitted" v-on:click.prevent="enableAdd = true;" class="btn btn-primary" type="click">Click Here If You Would Like To Apply</button>
       <span v-if="!isLoggedIn">

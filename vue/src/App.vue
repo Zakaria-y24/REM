@@ -13,6 +13,9 @@
       </router-link> |
       <router-link class="nav-item" v-bind:to="{name:'AddPropertyView'}">
         Add A Property  
+      </router-link> |
+      <router-link class="nav-item" v-bind:to="{name:'MyApplicationsView'}">
+        My Applications  
       </router-link>
         <router-link
         class="nav-item"

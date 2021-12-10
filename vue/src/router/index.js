@@ -8,6 +8,7 @@ import store from "../store/index";
 import Search from '../views/Search.vue';
 import PropertyDetailsView from "../views/PropertyDetailsView.vue";
 import AddPropertyView from "../views/AddPropertyView.vue";
+import MyApplicationsView from "../views/MyApplicationsView.vue";
 import Splash from "../views/Splash.vue";
 
 Vue.use(Router);
@@ -53,6 +54,14 @@ const router = new Router({
       path: '/AddProperty',
       name: 'AddPropertyView',
       component: AddPropertyView,
+      meta: {
+        requiresAuth: false,
+      }
+    },
+    {
+      path: '/MyApplications',
+      name: 'MyApplicationsView',
+      component: MyApplicationsView,
       meta: {
         requiresAuth: false,
       }
