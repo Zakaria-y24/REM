@@ -1,5 +1,10 @@
 <template>
+<<<<<<< HEAD
   <section v-if="property" class="property details">
+=======
+<div class="property-background">
+  <section v-if="property" class="property-details">
+>>>>>>> 247767cdc22bf4b02d4623a504572b1387f2761e
       <h1 class="property-name"> {{ property.name }} </h1>
       
       <h4 class="property-street"> {{ property.street }} </h4>
@@ -74,6 +79,7 @@
           </button>
          </form>
   </section>
+</div>
 </template>
 <script>
 import ApplicationService from '../services/ApplicationService.js' 
@@ -147,4 +153,21 @@ export default {
 </script>
 <style>
 
+  .property-details {
+    text-align: center;
+    color: white;
+    width: 300px;
+  border: 15px solid #76BFED;
+  padding: 50px;
+  margin: 20px;
+  
+ 
+  }
+  .property-background {
+      height: 100vh;
+      background-image: url("https://external-preview.redd.it/orB818nEmNCypKfxPNQSVxOFIg6q8iNsvYGwMgk6Irg.jpg?auto=webp&s=1e3519053e8c865fc82667770e58d0d9469343d9") ;
+  }
+  /* body {
+    background-image: url("https://external-preview.redd.it/orB818nEmNCypKfxPNQSVxOFIg6q8iNsvYGwMgk6Irg.jpg?auto=webp&s=1e3519053e8c865fc82667770e58d0d9469343d9") ;
+  } */
 </style>
