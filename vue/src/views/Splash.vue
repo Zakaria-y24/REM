@@ -13,10 +13,7 @@
             v-bind:properties="properties"
           />
         </div>
-        <add-property
-          v-bind:properties="properties"
-          v-if="isLoggedIn && isAdmin"
-        />
+        
         <property-details v-if="!isLoggedIn && !isAdmin" />
       </div>
     </div>
@@ -29,14 +26,12 @@
 <script>
 import PropertiesList from "../components/PropertiesList.vue";
 import PropertiesService from "../services/PropertyService.js";
-import AddProperty from "../components/AddProperty.vue";
 import PropertyDetails from "../components/PropertyDetails.vue";
 import SplashPage from "../components/SplashPage.vue";
 
 export default {
   components: {
     PropertiesList,
-    AddProperty,
     PropertyDetails,
     SplashPage,
   },
