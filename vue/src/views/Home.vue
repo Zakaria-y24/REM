@@ -13,7 +13,7 @@
           />
         </div>
         <add-property
-          v-bind:properties="properties"
+          v-bind:addedProperties="properties"
           v-if="isLoggedIn && isAdmin"
         />
         <property-details v-if="isLoggedIn && !isAdmin" />
