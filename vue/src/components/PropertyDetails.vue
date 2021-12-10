@@ -1,10 +1,6 @@
 <template>
-<<<<<<< HEAD
-  <section v-if="property" class="property details">
-=======
 <div class="property-background">
   <section v-if="property" class="property-details">
->>>>>>> 247767cdc22bf4b02d4623a504572b1387f2761e
       <h1 class="property-name"> {{ property.name }} </h1>
       
       <h4 class="property-street"> {{ property.street }} </h4>
