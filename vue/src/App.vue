@@ -4,44 +4,42 @@
 <template>
   <div id="app"> <!-- If you start to get random styling you don't like, remove container from this div -->
     <div id="nav" class="bg-white">
-      <router-link class="nav-item" tag="button" v-bind:to="{ name: 'home' }">
+      <router-link class="nav-item" v-bind:to="{ name: 'home' }">
         <i class="fas fa-home"></i> <!-- This is a font awesome icon -->
-       | Home |
+        Home 
+      </router-link> |
+      <router-link class="nav-item" v-bind:to="{name:'search'}">
+        Search  
       </router-link> 
-      <router-link class="nav-item" tag="button" v-bind:to="{name:'search'}">
-       | Search | 
+      <router-link v-if="isLoggedIn && isAdmin" class="nav-item" v-bind:to="{name:'AddPropertyView'}">
+       | Add A Property  
       </router-link> 
-        <div class="dropdown-content">
-      <router-link v-if="isLoggedIn && isAdmin" tag="button" class="nav-item" v-bind:to="{name:'AddPropertyView'}">
-       | Add A Property | 
+      <router-link v-if="isLoggedIn && !isAdmin" class="nav-item" v-bind:to="{name:'MyApplicationsView'}">
+       | My Applications  
       </router-link> 
-      <router-link v-if="isLoggedIn && !isAdmin" tag="button" class="nav-item" v-bind:to="{name:'MyApplicationsView'}">
-       | My Applications | 
-      </router-link> 
-      <router-link v-if="isLoggedIn && isAdmin" tag="button" class="nav-item" v-bind:to="{name:'ManagerApplicationsView'}">
-       | Manage Applications |  
+      <router-link v-if="isLoggedIn && isAdmin" class="nav-item" v-bind:to="{name:'ManagerApplicationsView'}">
+       | Manage Applications  
       </router-link>
         <router-link
-        class="nav-item" tag="button"
+        class="nav-item"
         v-bind:to="{ name: 'register' }"
         v-if="!$store.state.token">&nbsp;|&nbsp;Register</router-link>
       <router-link
-        class="nav-item" tag="button"
+        class="nav-item"
         v-bind:to="{ name: 'login' }"
         v-if="!$store.state.token">
-        &nbsp;|&nbsp;Login |
+        &nbsp;|&nbsp;Login
       </router-link>
       <router-link
-        class="nav-item" tag="button"
+        class="nav-item"
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token">
-        &nbsp;|&nbsp;Logout |
+        &nbsp;|&nbsp;Logout
       </router-link>
      
     </div>
     
     <router-view />
-    </div>
   </div>
 </template>
 
@@ -70,16 +68,5 @@ export default {
 // Your custom styles go below this point
 template{
   margin-top:5px;
-}
-.nav-item {
-    background-color: #457B9D;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  display: flex;
-  justify-content: space-around;
 }
 </style>
