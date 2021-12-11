@@ -1,36 +1,29 @@
 <template>
-
   <div class="home">
-    
-    <splash-page />
     <div class="properties-container">
-      <h3 class="text-center mt-3">Available Properties</h3>
+      <h3 class="text-center mt-3">My Properties</h3>
 
       <div class="d-flex p-2 justify-content-around">
         <div class="row gap-5">
-          <properties-list
+          <my-properties-list
             v-for="properties of properties"
             v-bind:key="properties.id"
             v-bind:properties="properties"
           />
         </div>
-        <property-details v-if="isLoggedIn && !isAdmin" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import PropertiesList from "../components/PropertiesList.vue";
+import MyPropertiesList from "../components/MyPropertiesList.vue";
 import PropertiesService from "../services/PropertyService.js";
-import PropertyDetails from "../components/PropertyDetails.vue";
-import SplashPage from "../components/SplashPage.vue";
+
 
 export default {
   components: {
-    PropertiesList,
-    PropertyDetails,
-    SplashPage,
+    MyPropertiesList,
   },
   name: "home",
   data() {

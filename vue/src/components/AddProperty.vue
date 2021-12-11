@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="addproperty">
      <p v-if="!isLoggedIn || !isAdmin">Please Log in or Register as a Property Owner to Add Properties</p> 
     <h4 v-if="isLoggedIn && isAdmin" >Add Property</h4>
     <form v-if="isLoggedIn && isAdmin" v-on:submit.prevent="addNewProperty()">
@@ -166,7 +166,7 @@ export default {
             Size: "",
             isAvailable: false,
           };
-          this.$router.push({name: 'home'});
+          this.$router.push({name: 'ManageProperties'});
         })
         .catch((response) => {
           console.error("Couldn't add property", response);
@@ -188,4 +188,7 @@ export default {
 </script>
 
 <style>
+.addproperty{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+}
 </style>
