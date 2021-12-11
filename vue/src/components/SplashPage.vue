@@ -25,6 +25,7 @@ export default {};
   background-repeat: no-repeat;
   background-size: cover;
   height: 40vh;
+  border-bottom: 0.5rem solid red;
 }
 h1 {
   font-size: 4rem;
