@@ -15,8 +15,9 @@ namespace Capstone.Models
         public string Type { get; set; }
         public string Description { get; set; }
         public string Name { get; set; }
-        public int Beds { get; set; }
-        public int Baths { get; set; }
+        public decimal Rent { get; set; }
+        public decimal Beds { get; set; }
+        public decimal Baths { get; set; }
         public int Size { get; set; }
         public int OwnerId { get; set;}
         public int UserId { get; set; }

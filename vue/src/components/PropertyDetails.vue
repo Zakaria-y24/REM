@@ -7,7 +7,10 @@
       <h4 class="property-city"> {{ property.city }} </h4>
       <h4 class="property-zipcode"> {{ property.zipcode }} </h4>
       <h4 class="property-type"> Type of Property: {{ property.type }} </h4>
+      <h4 class="property-type"> Beds: {{ property.beds }} </h4>
+      <h4 class="property-type"> Baths: {{ property.baths }} </h4>
       <p class="property-description"> {{ property.description }} </p>
+
       <button v-if="!enableAdd && isLoggedIn && !applicationSubmitted" v-on:click.prevent="enableAdd = true;" class="btn btn-primary" type="click">Click Here If You Would Like To Apply</button>
       <span v-if="!isLoggedIn">
           <p>Please Register or Log In if you would like to apply for this property</p>

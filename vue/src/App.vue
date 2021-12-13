@@ -13,7 +13,10 @@
       </router-link> 
       <router-link v-if="isLoggedIn && isAdmin" class="nav-item" v-bind:to="{name:'AddPropertyView'}">
        | Add A Property  
-      </router-link> 
+      </router-link>
+      <router-link v-if="isLoggedIn && isAdmin" class="nav-item" v-bind:to="{name:'ManageProperties'}">
+       | My Properties  
+      </router-link>  
       <router-link v-if="isLoggedIn && !isAdmin" class="nav-item" v-bind:to="{name:'MyApplicationsView'}">
        | My Applications  
       </router-link> 
@@ -40,7 +43,7 @@
     </div>
     
     <router-view />
-  </div>
+    </div>
 </template>
 
 <script>

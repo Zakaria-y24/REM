@@ -32,8 +32,10 @@ CREATE TABLE properties(
 	property_description nvarchar (150) NOT NULL,
 	property_type nvarchar (15) NOT NULL,
 	property_name nvarchar(25) NULL,
-	property_beds int NOT NULL,
-	property_baths int NOT NULL,
+	property_beds decimal NOT NULL,
+	property_rent decimal NOT NULL,
+	property_image image,
+	property_baths decimal NOT NULL,
 	property_size int NOT NULL,
 	property_owner int NOT NULL,
 	property_isAvailable bit NOT NULL,
@@ -66,19 +68,19 @@ GO
 
 SELECT * FROM users
 
-SELECT property_id, property_street,property_city,property_state,property_zipcode, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties 
 
 INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_type, property_description, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
-('2498 Hickory Pine Ln','Columbus','Georgia','31801', 'House', 'Small Family Home. Perfect starter home in an amazing neighborhood. Recently renovated with fully finished basement and all new appliances.','House1',3,2, 1598, 2, 1);
+('2498 Hickory Pine Ln','Columbus','Georgia','31801', 'House', 'Small Family Home. Perfect starter home in an amazing neighborhood. Recently renovated with fully finished basement and all new appliances.','House1',3.5,2, 1598, 2, 1);
 INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_type, property_description, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
-('2907 N High St','Columbus','Ohio','43225', 'Apartment', 'Spacious Apartment property in the heart of downtown Columbus', 'House2', 4, 2, 2000, 2, 1);
+('2907 N High St','Columbus','Ohio','43225', 'Apartment', 'Spacious Apartment property in the heart of downtown Columbus', 'House2', 4, 2.5, 2000, 2, 1);
 INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_type, property_description, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
 ('2312 Far Away Dr','Honolulu','Hawaii','96795', 'House', 'Want to have a place away from all the city noise? Want to raise a family in a real tight knit community? This property is for You!!!!!!','House3', 1, 1, 2500, 2, 1);
 INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_type, property_description, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
-('3746 Somewhere Close','Westerville','Ohio','43081', 'House', 'Beautiful Home in the Suburbs only 15 minutes away from your center of the city','House4',3,2, 1598, 2, 1);
+('3746 Somewhere Close','Westerville','Ohio','43081', 'House', 'Beautiful Home in the Suburbs only 15 minutes away from your center of the city','House4',3,2.5, 1598, 2, 1);
 
 
-
+SELECT property_id, property_street,property_city,property_state,property_zipcode, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties 
+SELECT property_id, property_street, property_city, property_state, property_zipcode, property_type, property_description, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties WHERE property_owner = 2;
 
 SELECT applicant_id, applicant_name, applicant_social, applicant_birthDate, applicant_date, applicant_email, applicant_address, applicant_hasPets, applicant_salary, applicant_phone, applicant_property, applicant_status FROM applicants a INNER JOIN properties p ON a.applicant_property = p.property_id WHERE p.property_owner = 1;   
 

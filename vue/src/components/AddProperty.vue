@@ -1,10 +1,14 @@
 <template>
   <div class="addproperty">
-     <p v-if="!isLoggedIn || !isAdmin">Please Log in or Register as a Property Owner to Add Properties</p> 
-    <h4 v-if="isLoggedIn && isAdmin" >Add Property</h4>
+    <p v-if="!isLoggedIn || !isAdmin">
+      Please Log in or Register as a Property Owner to Add Properties
+    </p>
+    <h4 v-if="isLoggedIn && isAdmin" class="text-center mt-3">Add Property</h4>
     <form v-if="isLoggedIn && isAdmin" v-on:submit.prevent="addNewProperty()">
       <div class="mb-3">
-        <label for="street" class="form-label"></label>
+        <label for="street" class="form-label"
+          >Please Enter Street Address</label
+        >
         <input
           type="text"
           class="form-control"
@@ -15,7 +19,7 @@
         />
       </div>
       <div class="mb-3">
-        <label for="city" class="form-label"></label>
+        <label for="city" class="form-label">Please Enter City</label>
         <input
           type="text"
           class="form-control"
@@ -26,7 +30,7 @@
         />
       </div>
       <div class="mb-3">
-        <label for="state" class="form-label"></label>
+        <label for="state" class="form-label">Please Enter State</label>
         <input
           type="text"
           class="form-control"
@@ -37,7 +41,7 @@
         />
       </div>
       <div class="mb-3">
-        <label for="zipcode" class="form-label"></label>
+        <label for="zipcode" class="form-label">Please Enter ZipCode</label>
         <input
           type="text"
           class="form-control"
@@ -49,14 +53,21 @@
       </div>
       <div class="form-group">
         <label for="type">Property Type</label>
-        <select class="form-control" required id="type" v-model="newProperty.Type">
+        <select
+          class="form-control"
+          required
+          id="type"
+          v-model="newProperty.Type"
+        >
           <option value="House">House</option>
           <option value="Apartment">Apartment</option>
           <option value="Bussiness">Bussiness</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="description">Please give a detailed description of your property</label>
+        <label for="description"
+          >Please give a detailed description of your property</label
+        >
         <textarea
           v-model.trim="newProperty.Description"
           class="form-control"
@@ -65,7 +76,9 @@
         ></textarea>
       </div>
       <div class="mb-3">
-        <label for="name" class="form-label"></label>
+        <label for="name" class="form-label"
+          >Please Enter A Name or Title For Your Property</label
+        >
         <input
           type="text"
           class="form-control"
@@ -76,7 +89,7 @@
         />
       </div>
       <div class="mb-3">
-        <label for="beds" class="form-label"></label>
+        <label for="beds" class="form-label">Number of Beds</label>
         <input
           type="text"
           class="form-control"
@@ -87,7 +100,7 @@
         />
       </div>
       <div class="mb-3">
-        <label for="baths" class="form-label"></label>
+        <label for="baths" class="form-label">Number of Baths</label>
         <input
           type="text"
           class="form-control"
@@ -98,7 +111,18 @@
         />
       </div>
       <div class="mb-3">
-        <label for="size" class="form-label"></label>
+        <label for="rent" class="form-label">Monthly Rent</label>
+        <input
+          type="text"
+          class="form-control"
+          id="rent"
+          v-model.number="newProperty.Rent"
+          required
+          placeholder="Enter Monthly Rent"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="size" class="form-label">Please Enter Size in sqft</label>
         <input
           type="text"
           class="form-control"
@@ -126,7 +150,6 @@
 import PropertyService from "../services/PropertyService.js";
 
 export default {
-
   data() {
     return {
       newProperty: {
@@ -139,6 +162,7 @@ export default {
         Name: "",
         Beds: "",
         Baths: "",
+        Rent: "",
         Size: "",
         isAvailable: false,
       },
@@ -161,22 +185,22 @@ export default {
             Type: "",
             Description: "",
             Name: "",
+            Rent: "",
             Beds: "",
             Baths: "",
             Size: "",
             isAvailable: false,
           };
-          this.$router.push({name: 'ManageProperties'});
+          this.$router.push({ name: "ManageProperties" });
         })
         .catch((response) => {
           console.error("Couldn't add property", response);
           this.showError = true;
           this.errorMessage = "Couldn't add property please try again";
-          
         });
     },
   },
-    computed: {
+  computed: {
     isLoggedIn() {
       return this.$store.state.token;
     },
@@ -188,7 +212,8 @@ export default {
 </script>
 
 <style>
-.addproperty{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+.addproperty {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 }
+
 </style>
