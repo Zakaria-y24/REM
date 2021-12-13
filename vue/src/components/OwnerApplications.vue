@@ -10,7 +10,7 @@
     <span>
       Date You Applied: {{ applications.date }} Application Status: {{applications.status}}
     </span>
-    <button class="btn btn-primary" v-on:click="getApplications()" type="click" >View Details Not implimented</button>
+    <button class="btn btn-primary" v-on:click="getApplications()" type="button" >View Details Not implimented</button>
   </li>
 </template>
 
@@ -25,14 +25,16 @@ export default {
       return {
         application: {
           name: '',
-          applicationId: 0,
           propertyAddress: '',
           applicationStatus: '',
           salary: '',
           email: '',
           phone:'',
           hasPets: false,
-          birthDate: ''
+          birthDate: '',
+          date: '',
+          currentAddress: '',
+
         }
 
       }
