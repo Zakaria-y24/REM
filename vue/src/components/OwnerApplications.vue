@@ -8,7 +8,7 @@
     Property Number: {{ applications.propertyId }}
     Application Satus: {{applications.status}}
     <span>
-      Date Applied: {{ applications.date }} Application Status: {{applications.status}}
+      Date Applied: {{ applications.date }}
     </span>
     <span v-if="viewDetails">
 
@@ -20,7 +20,8 @@
       Applcant Current Address: {{applications.address}}
       Applcant BirthDate: {{applications.birthDate}}
       <button class="btn btn-primary" v-on:click="viewDetails = false" type="button" >Show Less</button>
-      
+      <button class="btn btn-primary" v-on:click="acceptApplication" type="button" >Accept Application</button>
+      <button class="btn btn-primary" v-on:click="viewDetails = false" type="button" >Deny Application</button>
     </span>
     <button class="btn btn-primary" v-if="!viewDetails" v-on:click="viewDetails = true" type="button" >View Details</button>
   </li>
@@ -28,6 +29,7 @@
 
 <script>
 import ApplicationService from '../services/ApplicationService.js'
+import PropertyService from '../services/PropertyService.js'
 export default {
   
     props: {
@@ -53,13 +55,32 @@ export default {
       }
 
     },
-    methods: {
-     getApplications() {
-       ApplicationService.getApplicationsForOwner()
+    methods:{
+
+      acceptApplication() {
+        PropertyService.MakePropertyUnavailable(this.applications)
+        .then((response) => {
+          const newItem = response.data;
+          console.log(newItem);
+        })
+        .catch((response) => {
+          console.error("Couldn't update property", response);
+          this.showError = true;
+          this.errorMessage = "Couldn't update property please try again";
+        });
     
-       
-     }
-      
+      ApplicationService.ApproveApplication(this.applications)
+        .then((response) => {
+          const newItem = response.data;
+          console.log(newItem);
+        })
+        .catch((response) => {
+          console.error("Couldn't update application", response);
+          this.showError = true;
+          this.errorMessage = "Couldn't update application please try again";
+        });
+    
+    },
     }
 };
 </script>
