@@ -47,6 +47,22 @@ namespace Capstone.Controllers
 
             return Ok(results);
         }
+        [HttpPut("accept")]
+        [Authorize(Roles = "admin")]
+        public ActionResult AcceptApplication(Applicant application)
+        {
+            var results = applicants.AcceptApplication(application);
+
+            return Ok(results);
+        }
+        [HttpPut("deny")]
+        [Authorize(Roles = "admin")]
+        public ActionResult DenyApplication(Applicant application)
+        {
+            var results = applicants.DenyApplication(application);
+
+            return Ok(results);
+        }
         [HttpGet("properties")]
         [Authorize(Roles = "admin")]
         public ActionResult OwnerGetApplications()

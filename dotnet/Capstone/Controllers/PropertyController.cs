@@ -56,6 +56,16 @@ namespace Capstone.Controllers
 
             return Ok(results);
         }
+        [HttpPut("availability")]
+        [Authorize(Roles = "admin")]
+        public ActionResult UpdateAvailability(Property updatedProperty)
+        {
+            
+            var results = properties.UpdateAvailability(updatedProperty);
+
+            return Ok(results);
+        }
+
 
         [HttpGet("/search")]
         [AllowAnonymous]
