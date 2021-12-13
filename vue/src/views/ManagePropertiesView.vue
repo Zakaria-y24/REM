@@ -41,7 +41,7 @@ export default {
   },
 
   created() {
-    PropertiesService.getAllProperties()
+    PropertiesService.getAllMyProperties()
       .then((response) => {
         this.properties = response.data;
       })
