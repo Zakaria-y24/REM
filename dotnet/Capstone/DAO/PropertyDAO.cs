@@ -20,7 +20,7 @@ namespace Capstone.DAO
         {
             List<Property> properties = new List<Property>();
 
-            const string SELECT = "SELECT property_id, property_street, property_city, property_state, property_zipcode, property_type, property_description, property_name, property_rent,property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties";
+            const string SELECT = "SELECT property_id, property_street, property_city, property_state, property_zipcode, property_type, property_description, property_name, property_rent, property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
