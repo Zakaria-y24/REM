@@ -8,9 +8,21 @@
     Property Number: {{ applications.propertyId }}
     Application Satus: {{applications.status}}
     <span>
-      Date You Applied: {{ applications.date }} Application Status: {{applications.status}}
+      Date Applied: {{ applications.date }} Application Status: {{applications.status}}
     </span>
-    <button class="btn btn-primary" v-on:click="getApplications()" type="button" >View Details Not implimented</button>
+    <span v-if="viewDetails">
+
+      Applcant BirthDate: {{applications.birthDate}}
+      Applcant Email: {{applications.email}}
+      Applcant PhoneNumber: {{applications.phone}}
+      Applcant Salary: {{applications.salary}}
+      Applcant Social: {{applications.social}}
+      Applcant Current Address: {{applications.address}}
+      Applcant BirthDate: {{applications.birthDate}}
+      <button class="btn btn-primary" v-on:click="viewDetails = false" type="button" >Show Less</button>
+      
+    </span>
+    <button class="btn btn-primary" v-if="!viewDetails" v-on:click="viewDetails = true" type="button" >View Details</button>
   </li>
 </template>
 
@@ -35,7 +47,8 @@ export default {
           date: '',
           currentAddress: '',
 
-        }
+        },
+        viewDetails: false
 
       }
 
