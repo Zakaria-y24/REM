@@ -11,7 +11,7 @@ export default {
     addProperty(property) {
          return axios.post('/properties', property);
     },
-    searchProperties(zipcode,beds,baths){
-        return axios.post('/search',zipcode, beds,baths);
+    searchProperties(){
+        return axios.get('/search');
     }
 }
