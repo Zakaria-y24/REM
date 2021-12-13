@@ -179,7 +179,7 @@ namespace Capstone.DAO
 
             return properties;
         }
-        public int UpdateAvailability(int property_id)
+        public int UpdateAvailability(Property updatedProperty)
         {
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -189,13 +189,14 @@ namespace Capstone.DAO
 
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
-                    command.Parameters.AddWithValue("@property_id", property_id);
-                    
+                    command.Parameters.AddWithValue("@property_id", updatedProperty.Id);
+
+                    command.ExecuteNonQuery();
 
                 }
 
             }
-            return property_id;
+            return updatedProperty.Id;
 
         }
     }

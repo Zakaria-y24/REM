@@ -56,11 +56,12 @@ namespace Capstone.Controllers
 
             return Ok(results);
         }
-        [HttpPost("availability")]
+        [HttpPut("availability")]
         [Authorize(Roles = "admin")]
-        public ActionResult UpdateAvailability(int propertyId)
+        public ActionResult UpdateAvailability(Property updatedProperty)
         {
-            int results = properties.UpdateAvailability(propertyId);
+            
+            var results = properties.UpdateAvailability(updatedProperty);
 
             return Ok(results);
         }
