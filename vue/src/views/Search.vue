@@ -109,7 +109,7 @@ button {
 }
 #searchForm {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
 }
 </style>

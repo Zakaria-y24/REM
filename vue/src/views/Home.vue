@@ -2,16 +2,27 @@
   <div class="home">
     <splash-page />
     <div class="filterOptions">
+      <div>
     <label class="searches" for="zipcode">ZipCode:</label>
     <input  type="text" v-model="zipcode" id="zipcode" />
+      </div>
+      <div>
     <label class="searches" for="beds">Beds:</label>
     <input type="text" v-model="beds" id="beds" />
+      </div>
+      <div>
     <label class="searches" for="baths">Baths:</label>
     <input type="text" v-model="baths" id="baths" />
+      </div>
+      <div>
     <label class="searches" for="rent">Rent:</label>
     <input type="text" v-model="rent" id="rent" />
+    </div>
+    <div>
     <label class="searches" for="size">Size:</label>
     <input type="text" v-model="size" id="size" />
+    </div>
+    <div>
       <label class="searches" for="type">Property Type: </label>
     <select v-model="type" id="type">
       <option value="">Show All</option>
@@ -19,6 +30,7 @@
       <option value="Apartment">Apartment</option>
       <option value="Bussiness">Bussiness</option>
     </select>
+    </div>
     </div>
     <div class="properties-container">
       <h3 class="text-center mt-3">Available Properties</h3>
@@ -111,12 +123,13 @@ body {
 }
 .filterOptions {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-between;
   
 }
 .searches {
-  padding: 0px;
+  margin-left: 10px;
 }
+
 
 </style>
