@@ -107,4 +107,9 @@ button {
     width: 25%;
     color: white;
 }
+#searchForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 </style>

@@ -2,15 +2,15 @@
   <div class="home">
     <splash-page />
     <div class="filterOptions">
-    <label for="zipcode">ZipCode: </label>
+    <label for="zipcode">ZipCode:</label>
     <input type="text" v-model="zipcode" id="zipcode" />
-    <label for="beds">Beds: </label>
+    <label for="beds">Beds:</label>
     <input type="text" v-model="beds" id="beds" />
-    <label for="baths">Baths: </label>
+    <label for="baths">Baths:</label>
     <input type="text" v-model="baths" id="baths" />
-    <label for="rent">Rent: </label>
+    <label for="rent">Rent:</label>
     <input type="text" v-model="rent" id="rent" />
-    <label for="size">Size: </label>
+    <label for="size">Size:</label>
     <input type="text" v-model="size" id="size" />
       <label for="type">Property Type: </label>
     <select v-model="type" id="type">
@@ -108,5 +108,10 @@ export default {
 <style scoped>
 body {
   color: #333;
+}
+.filterOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 </style>
