@@ -9,7 +9,7 @@
         <input type = "text" id = "beds" v-model.number="beds" /> 
 
         <label for="baths"> Bath </label>
-        <input type = "text" id = "baths" />
+        <input type = "text" id = "baths" v-model.number="baths"/>
 
          <button type="submit" class="btn btn-success">
             Submit
@@ -34,7 +34,7 @@
 
 <script>
 import PropertiesList from "../components/PropertiesList.vue";
- 
+import PropertiesService from "../services/PropertyService.js";
 
 export default {
     components:{
@@ -42,9 +42,12 @@ export default {
        
        
     },
+    props: {
+        properties: Array,
+    },
     data(){
         return {
-     properties: [],
+    
      zipcode: '',
      beds: '',
      baths:'',
@@ -54,21 +57,29 @@ export default {
   
 
     methods:{
-      
+       created() {
+    PropertiesService.getAllProperties()
+      .then((response) => {
+        this.properties = response.data;
+      })
+      .catch((response) => {
+        console.error("could not get properties", response);
+      });
+  },
 
-          searchProperties(){
-             let zipcode = document.getElementById("zipcode");
-             let beds = document.getElementById("beds");
-             let baths = document.getElementById("baths");
+    //       searchProperties(){
+    //          let zipcode = document.getElementById("zipcode");
+    //          let beds = document.getElementById("beds");
+    //          let baths = document.getElementById("baths");
         
-             for(let i=0; i < this.properties.length; i++){
-                 if(this.properties.zipcode == zipcode && this.properties.beds >= beds && this.properties.baths >= baths){
-                    return true;
-                 }
-             }
-          }
+    //          for(let i=0; i < this.properties.length; i++){
+    //              if(this.properties.zipcode == zipcode && this.properties.beds >= beds && this.properties.baths >= baths){
+    //                 return true;
+    //              }
+    //          }
+    //       }
         
-    }
+     }
     
 }
 
