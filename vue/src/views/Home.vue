@@ -1,15 +1,32 @@
 <template>
-
   <div class="home">
-    
     <splash-page />
+    <div class="filterOptions">
+    <label for="zipcode">ZipCode: </label>
+    <input type="text" v-model="zipcode" id="zipcode" />
+    <label for="beds">Beds: </label>
+    <input type="text" v-model="beds" id="beds" />
+    <label for="baths">Baths: </label>
+    <input type="text" v-model="baths" id="baths" />
+    <label for="rent">Rent: </label>
+    <input type="text" v-model="rent" id="rent" />
+    <label for="size">Size: </label>
+    <input type="text" v-model="size" id="size" />
+      <label for="type">Property Type: </label>
+    <select v-model="type" id="type">
+      <option value="">Show All</option>
+      <option value="House">House</option>
+      <option value="Apartment">Apartment</option>
+      <option value="Bussiness">Bussiness</option>
+    </select>
+    </div>
     <div class="properties-container">
       <h3 class="text-center mt-3">Available Properties</h3>
 
       <div class="d-flex p-2 justify-content-around">
         <div class="row gap-5">
           <properties-list
-            v-for="properties of properties"
+            v-for="properties of filteredProperties"
             v-bind:key="properties.id"
             v-bind:properties="properties"
           />
@@ -36,14 +53,12 @@ export default {
   data() {
     return {
       properties: [],
-      itemsToAdd: {
-        id: 0,
-        name: " ",
-        street: "",
-        city: "",
-        zipcode: "",
-        isAvailable: false,
-      },
+      zipcode: "",
+      beds: "",
+      baths: "",
+      rent: "",
+      size: "",
+      type: "",
     };
   },
 
@@ -63,6 +78,30 @@ export default {
     isAdmin() {
       return this.$store.state.user && this.$store.state.user.role === "admin";
     },
+    filteredProperties() {
+      return this.properties.filter((p) => {
+        if (!p.zipcode.toLowerCase().includes(this.zipcode.toLowerCase())) {
+          return false;
+        }
+        if (p.beds <= this.beds) {
+          return false;
+        }
+        if (p.baths <= this.baths) {
+          return false;
+        }
+        if (p.rent <= this.rent) {
+          return false;
+        }
+        if (p.size <= this.size) {
+          return false;
+        }
+        if (!p.type.toLowerCase().includes(this.type.toLowerCase())) {
+          return false;
+        }
+
+        return true;
+      });
+    },
   },
 };
 </script>
@@ -70,5 +109,4 @@ export default {
 body {
   color: #333;
 }
-
 </style>

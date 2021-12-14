@@ -85,3 +85,8 @@ SELECT property_id, property_street, property_city, property_state, property_zip
 SELECT applicant_id, applicant_name, applicant_social, applicant_birthDate, applicant_date, applicant_email, applicant_address, applicant_hasPets, applicant_salary, applicant_phone, applicant_property, applicant_status FROM applicants a INNER JOIN properties p ON a.applicant_property = p.property_id WHERE p.property_owner = 1;   
 
 SELECT * FROM properties
+SELECT property_name
+FROM properties
+INNER JOIN applicants
+ON property_id = applicant_property;
+SELECT property_id, property_street, property_city, property_state, property_zipcode, property_type, property_description, property_name, property_rent, property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties WHERE property_owner = 3;

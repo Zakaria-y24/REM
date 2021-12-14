@@ -58,8 +58,21 @@ namespace Capstone.Controllers
         }
         [HttpPut("availability")]
         [Authorize(Roles = "admin")]
-        public ActionResult UpdateAvailability(Property updatedProperty)
+        public ActionResult UpdateAvailability(Applicant application)
         {
+            int userId = int.Parse(this.User.FindFirst("sub").Value);
+
+            var propertyList = properties.GetAllMyProperties(userId);
+
+            Property updatedProperty = new Property();
+            foreach (var property in propertyList)
+            {
+                if(property.Id == application.PropertyId)
+                {
+                    updatedProperty = property;
+                    break;
+                }
+            }
             
             var results = properties.UpdateAvailability(updatedProperty);
 
