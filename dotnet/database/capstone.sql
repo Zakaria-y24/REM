@@ -34,7 +34,6 @@ CREATE TABLE properties(
 	property_name nvarchar(25) NULL,
 	property_beds decimal NOT NULL,
 	property_rent decimal NOT NULL,
-	property_image image,
 	property_baths decimal NOT NULL,
 	property_size int NOT NULL,
 	property_owner int NOT NULL,
@@ -60,6 +59,7 @@ CONSTRAINT PK_applicant PRIMARY KEY (applicant_id),
 CONSTRAINT FK_applicant_property_properties_property_id FOREIGN KEY(applicant_property) REFERENCES properties(property_id),
 CONSTRAINT FK_applicant_user_id_users_user_id FOREIGN KEY (applicant_user_id)REFERENCES users(user_id)
 )
+
 -- Populate default data for testing: user and admin with password of 'password'
 -- These values should not be kept when going to Production
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
@@ -69,14 +69,14 @@ GO
 SELECT * FROM users
 
 
-INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_type, property_description, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
-('2498 Hickory Pine Ln','Columbus','Georgia','31801', 'House', 'Small Family Home. Perfect starter home in an amazing neighborhood. Recently renovated with fully finished basement and all new appliances.','House1',3.5,2, 1598, 2, 1);
-INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_type, property_description, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
-('2907 N High St','Columbus','Ohio','43225', 'Apartment', 'Spacious Apartment property in the heart of downtown Columbus', 'House2', 4, 2.5, 2000, 2, 1);
-INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_type, property_description, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
-('2312 Far Away Dr','Honolulu','Hawaii','96795', 'House', 'Want to have a place away from all the city noise? Want to raise a family in a real tight knit community? This property is for You!!!!!!','House3', 1, 1, 2500, 2, 1);
-INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_type, property_description, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
-('3746 Somewhere Close','Westerville','Ohio','43081', 'House', 'Beautiful Home in the Suburbs only 15 minutes away from your center of the city','House4',3,2.5, 1598, 2, 1);
+INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_type, property_description, property_name,property_rent, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
+('2498 Hickory Pine Ln','Columbus','Georgia','31801', 'House', 'Small Family Home. Perfect starter home in an amazing neighborhood. Recently renovated with fully finished basement and all new appliances.','House1',2500,3.5,2, 1598, 2, 1);
+INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_type, property_description, property_name,property_rent, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
+('2907 N High St','Columbus','Ohio','43225', 'Apartment', 'Spacious Apartment property in the heart of downtown Columbus', 'House2', 1050, 4, 2.5, 2000, 2, 1);
+INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_type, property_description, property_name,property_rent, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
+('2312 Far Away Dr','Honolulu','Hawaii','96795', 'House', 'Want to have a place away from all the city noise? Want to raise a family in a real tight knit community? This property is for You!!!!!!','House3',920, 1, 1, 2500, 2, 1);
+INSERT INTO properties (property_street,property_city,property_state,property_zipcode, property_type, property_description, property_name,property_rent, property_beds, property_baths, property_size, property_owner, property_isAvailable) VALUES 
+('3746 Somewhere Close','Westerville','Ohio','43081', 'House', 'Beautiful Home in the Suburbs only 15 minutes away from your center of the city','House4', 2000, 3,2.5, 1598, 2, 1);
 
 
 SELECT property_id, property_street,property_city,property_state,property_zipcode, property_name, property_beds, property_baths, property_size, property_owner, property_isAvailable FROM properties 

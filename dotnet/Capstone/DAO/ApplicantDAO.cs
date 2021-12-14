@@ -142,5 +142,45 @@ namespace Capstone.DAO
 
             return applicants;
         }
+        public int AcceptApplication(Applicant acceptedApplication)
+        {
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                const string sql = "UPDATE applicants SET applicant_status = 'Accepted' WHERE applicant_id = @id; SELECT @@IDENTITY;";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("id", acceptedApplication.ApplicantId);
+
+                    command.ExecuteNonQuery();
+
+                }
+
+            }
+            return acceptedApplication.ApplicantId;
+
+        }
+        public int DenyApplication(Applicant deniedApplication)
+        {
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                const string sql = "UPDATE applicants SET applicant_status = 'Denied' WHERE applicant_id = @id; SELECT @@IDENTITY;";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("id", deniedApplication.ApplicantId);
+
+                    command.ExecuteNonQuery();
+
+                }
+
+            }
+            return deniedApplication.ApplicantId;
+
+        }
     }
 }
