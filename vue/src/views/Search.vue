@@ -1,51 +1,88 @@
 <template>
   <section>
     <h2> Search for Apartments</h2>
-    <form v-on:submit.prevent="searchProperties()">
+    <form id ="searchForm" v-on:submit.prevent="searchProperties()">
         <label for="zipcode"> Zipcode </label>
-        <input type = "text" id = "zipcode" /> 
+        <input type = "text" id = "zipcode" v-model.number="zipcode" /> 
 
         <label for = "beds"> Beds</label>
-        <input type = "text" id = "beds" /> 
+        <input type = "text" id = "beds" v-model.number="beds" /> 
 
         <label for="baths"> Bath </label>
-        <input type = "text" id = "baths" />
+        <input type = "text" id = "baths" v-model.number="baths"/>
 
          <button type="submit" class="btn btn-success">
             Submit
         </button>
 
     </form>
-
-
+     <div class="d-flex p-2 justify-content-around" v-show="true">
+        <div class="row gap-5">
+          <properties-list
+            v-for="properties of properties"
+            v-bind:key="properties.id"
+            v-bind:properties="properties" />
+          
+        </div>
+     </div>
+       
+    <div class="d-flex cta justify-content-center">
+      <p class="h4 mb-2 text-center align-self-center">Interested in viewing more properties? <router-link :to="{ name: 'register' }">Register for an account today!</router-link></p>
+     </div>
 </section>
 </template>
 
 <script>
-import PropertyService from '../services/PropertyService.js'
+import PropertiesList from "../components/PropertiesList.vue";
+import PropertiesService from "../services/PropertyService.js";
+
 export default {
-    props:{
-        addedProperties: Array,
+    components:{
+        PropertiesList,
+       
+       
     },
-    zipcode: '',
-    beds: '',
-    baths:'',
+    props: {
+        properties: Array,
+    },
+    data(){
+        return {
+    
+     zipcode: '',
+     beds: '',
+     baths:'',
+        };
+    
+    },
+  
 
     methods:{
-    searchProperties(addedProperties){
-        PropertyService.searchProperties(this.zipcode,this.beds, this.baths)
-        .then(response => 
-        {
-            return response.filter(item => item.zipcode== addedProperties.zipcode && item.beds ==addedProperties.beds && item.baths == addedProperties.baths);
-        })
-        .catch(response => {
-            console.error('Could not find properties', response)
-        })
-        
-    }
-    }
+       created() {
+    PropertiesService.getAllProperties()
+      .then((response) => {
+        this.properties = response.data;
+      })
+      .catch((response) => {
+        console.error("could not get properties", response);
+      });
+  },
 
+    //       searchProperties(){
+    //          let zipcode = document.getElementById("zipcode");
+    //          let beds = document.getElementById("beds");
+    //          let baths = document.getElementById("baths");
+        
+    //          for(let i=0; i < this.properties.length; i++){
+    //              if(this.properties.zipcode == zipcode && this.properties.beds >= beds && this.properties.baths >= baths){
+    //                 return true;
+    //              }
+    //          }
+    //       }
+        
+     }
+    
 }
+
 </script>
 
 <style scoped>
