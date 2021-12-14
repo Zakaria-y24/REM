@@ -23,7 +23,10 @@
       <router-link v-if="isLoggedIn && isAdmin" class="nav-item" v-bind:to="{name:'ManagerApplicationsView'}">
        | Manage Applications  
       </router-link>
-        <router-link
+
+       <router-link v-if="isLoggedIn && isAdmin" class="nav-item" v-bind:to="{name:'Data'}">
+       | View Data 
+      </router-link>  <router-link
         class="nav-item"
         v-bind:to="{ name: 'register' }"
         v-if="!$store.state.token">&nbsp;|&nbsp;Register</router-link>
