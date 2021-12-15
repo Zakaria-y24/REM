@@ -28,7 +28,7 @@
       <option value="">Show All</option>
       <option value="House">House</option>
       <option value="Apartment">Apartment</option>
-      <option value="Bussiness">Bussiness</option>
+      <option value="Bussiness">Business</option>
     </select>
     </div>
     </div>
