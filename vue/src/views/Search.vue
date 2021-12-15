@@ -3,15 +3,15 @@
     <h2 class="search-header"> Search for Apartments</h2>
     <form id ="searchForm" v-on:submit.prevent="searchProperties()">
         <label for="zipcode"> Zipcode </label>
-        <input type = "text" id = "zipcode" v-model.number="zipcode" /> 
+        <input class="input" type = "text" id = "zipcode" v-model.number="zipcode" /> 
 
-        <label for = "beds"> Beds</label>
-        <input type = "text" id = "beds" v-model.number="beds" /> 
+        <label class="lable" for = "beds"> Beds</label>
+        <input class="input"  type = "text" id = "beds" v-model.number="beds" /> 
 
         <label for="baths"> Bath </label>
-        <input type = "text" id = "baths" v-model.number="baths"/>
+        <input class="input" type = "text" id = "baths" v-model.number="baths"/>
 
-         <button type="submit" class="btn btn-success">
+         <button  type="submit" class="btn btn-success">
             Submit
         </button>
 
@@ -90,17 +90,16 @@ export default {
     margin-top:15px;
 }
 
-input{
-    width: 25%;
-   margin-bottom: 50px;
+#searchForm {
+   display: flex;
+   flex-direction: row;
    
 }
-/* label{
-    display:flex;
-} */
+
 .btn {
     width: 25%;
     color: white;
 }
+
 
 </style>
