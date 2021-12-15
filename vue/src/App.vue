@@ -23,10 +23,10 @@
       <router-link tag="button" v-if="isLoggedIn && isAdmin" class="nav-item" v-bind:to="{name:'ManagerApplicationsView'}">
         Manage Applications  
       </router-link>
-
-       <router-link v-if="isLoggedIn && isAdmin" class="nav-item" v-bind:to="{name:'Data'}">
+       <router-link tag="button" v-if="isLoggedIn && isAdmin" class="nav-item" v-bind:to="{name:'Data'}">
        View Data 
-      </router-link>  <router-link
+      </router-link> 
+     <router-link
         class="nav-item"
         tag="button" v-bind:to="{ name: 'register' }"
         v-if="!$store.state.token">&nbsp;&nbsp;Register</router-link>
@@ -75,15 +75,15 @@ export default {
 template{
   margin-top:5px;
 }
-#nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-content: center;
+// #nav {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: left;
+//   align-content: center;
 
   
  
-}
+// }
 .nav-item {
   background-color: $dark; 
   border-radius: 5px;

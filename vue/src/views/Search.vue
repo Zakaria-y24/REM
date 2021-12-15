@@ -89,15 +89,15 @@ export default {
 h2 {
     margin-top:15px;
 }
-form {
+/* form {
 display: flex;
 flex-direction: column;
-margin-left:50px;
+margin-left:10000px;
 
-}
+} */
 input{
     width: 25%;
-   margin-bottom: 10px;
+   margin-bottom: 50px;
    
 }
 label{
@@ -109,7 +109,8 @@ button {
 }
 #searchForm {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-between;
+  
 }
 </style>
