@@ -88,6 +88,7 @@ export default {
         .then((response) => {
           const newItem = response.data;
           console.log(newItem);
+          this.$router.push({ name: "ManageProperties" });
         })
         .catch((response) => {
           console.error("Couldn't update application", response);
@@ -100,6 +101,7 @@ export default {
         .then((response) => {
           const newItem = response.data;
           console.log(newItem);
+           this.$router.push({ name: "ManageProperties" });
         })
         .catch((response) => {
           console.error("Couldn't update application", response);

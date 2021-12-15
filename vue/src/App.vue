@@ -3,7 +3,7 @@
      See https://getbootstrap.com/docs/4.5/getting-started/introduction/ for reference on bootstrap -->
 <template>
   <div id="app"> <!-- If you start to get random styling you don't like, remove container from this div -->
-    <div id="nav" class="bg-white">
+    <div id="nav" >
       <router-link tag="button" class="nav-item" v-bind:to="{ name: 'home' }">
         <i class="fas fa-home"></i> <!-- This is a font awesome icon -->
         Home 
@@ -25,11 +25,11 @@
       </router-link>
 
        <router-link v-if="isLoggedIn && isAdmin" class="nav-item" v-bind:to="{name:'Data'}">
-        View Data 
+       View Data 
       </router-link>  <router-link
         class="nav-item"
         tag="button" v-bind:to="{ name: 'register' }"
-        v-if="!$store.state.token">&nbsp;|&nbsp;Register</router-link>
+        v-if="!$store.state.token">&nbsp;&nbsp;Register</router-link>
       <router-link
         class="nav-item"
         tag="button" v-bind:to="{ name: 'login' }"
@@ -78,7 +78,7 @@ template{
 #nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: left;
   align-content: center;
 
   
@@ -94,4 +94,8 @@ template{
   display: inline-block;
   font-size: 16px;
 }
+div#nav {
+  background-color: $accentDark;
+}
+
 </style>

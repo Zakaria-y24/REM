@@ -2,23 +2,35 @@
   <div class="home">
     <splash-page />
     <div class="filterOptions">
-    <label for="zipcode">ZipCode: </label>
-    <input type="text" v-model="zipcode" id="zipcode" />
-    <label for="beds">Beds: </label>
+      <div>
+    <label class="searches" for="zipcode">ZipCode:</label>
+    <input  type="text" v-model="zipcode" id="zipcode" />
+      </div>
+      <div>
+    <label class="searches" for="beds">Beds:</label>
     <input type="text" v-model="beds" id="beds" />
-    <label for="baths">Baths: </label>
+      </div>
+      <div>
+    <label class="searches" for="baths">Baths:</label>
     <input type="text" v-model="baths" id="baths" />
-    <label for="rent">Rent: </label>
+      </div>
+      <div>
+    <label class="searches" for="rent">Rent:</label>
     <input type="text" v-model="rent" id="rent" />
-    <label for="size">Size: </label>
+    </div>
+    <div>
+    <label class="searches" for="size">Size:</label>
     <input type="text" v-model="size" id="size" />
-      <label for="type">Property Type: </label>
+    </div>
+    <div>
+      <label class="searches" for="type">Property Type: </label>
     <select v-model="type" id="type">
       <option value="">Show All</option>
       <option value="House">House</option>
       <option value="Apartment">Apartment</option>
       <option value="Bussiness">Business</option>
     </select>
+    </div>
     </div>
     <div class="properties-container">
       <h3 class="text-center mt-3">Available Properties</h3>
@@ -109,4 +121,15 @@ export default {
 body {
   color: #333;
 }
+.filterOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+.searches {
+  margin-left: 10px;
+}
+
+
 </style>
