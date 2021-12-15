@@ -13,17 +13,19 @@
         </div>
       </div>
     </div>
+    <GoogleChart />
   </div>
 </template>
 
 <script>
 import MyPropertiesList from "../components/MyPropertiesList.vue";
 import PropertiesService from "../services/PropertyService.js";
-
+import GoogleChart from '../components/GoogleChart.vue'
 
 export default {
   components: {
     MyPropertiesList,
+    GoogleChart
   },
   name: "home",
   data() {
