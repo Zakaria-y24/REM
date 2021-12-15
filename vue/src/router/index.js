@@ -12,7 +12,7 @@ import MyApplicationsView from "../views/MyApplicationsView.vue";
 import ManagePropertiesView from "../views/ManagePropertiesView.vue";
 import ManagerApplicationsView from "../views/ManagerApplicationsView.vue";
 import Splash from "../views/Splash.vue";
-import Data from "../views/DataView.vue";
+/*import Data from "../views/DataView.vue";*/
 
 Vue.use(Router);
 
@@ -121,7 +121,7 @@ const router = new Router({
         requiresAuth: false,
       },
     },
-    {
+    /*{
       path:"/data",
         name:"Data",
         component: Data,
@@ -129,7 +129,7 @@ const router = new Router({
           requiresAuth: false,
         },
 
-    },
+    },*/
 
     
   ],
