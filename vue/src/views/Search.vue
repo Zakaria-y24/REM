@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2> Search for Apartments</h2>
+    <h2 class="search-header"> Search for Apartments</h2>
     <form id ="searchForm" v-on:submit.prevent="searchProperties()">
         <label for="zipcode"> Zipcode </label>
         <input type = "text" id = "zipcode" v-model.number="zipcode" /> 
@@ -85,32 +85,22 @@ export default {
 
 </script>
 
-<style scoped>
-h2 {
+<style>
+.search-header {
     margin-top:15px;
 }
-/* form {
-display: flex;
-flex-direction: column;
-margin-left:10000px;
 
-} */
 input{
     width: 25%;
    margin-bottom: 50px;
    
 }
-label{
+/* label{
     display:flex;
-}
-button {
+} */
+.btn {
     width: 25%;
     color: white;
 }
-#searchForm {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  
-}
+
 </style>
