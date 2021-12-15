@@ -12,7 +12,7 @@ import MyApplicationsView from "../views/MyApplicationsView.vue";
 import ManagePropertiesView from "../views/ManagePropertiesView.vue";
 import ManagerApplicationsView from "../views/ManagerApplicationsView.vue";
 import Splash from "../views/Splash.vue";
-import Data from "../views/Data.vue";
+import Data from "../views/DataView.vue";
 
 Vue.use(Router);
 

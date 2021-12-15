@@ -25,7 +25,7 @@
       </router-link>
 
        <router-link v-if="isLoggedIn && isAdmin" class="nav-item" v-bind:to="{name:'Data'}">
-       | View Data 
+        View Data 
       </router-link>  <router-link
         class="nav-item"
         tag="button" v-bind:to="{ name: 'register' }"
