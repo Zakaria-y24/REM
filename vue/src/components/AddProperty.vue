@@ -61,7 +61,7 @@
         >
           <option value="House">House</option>
           <option value="Apartment">Apartment</option>
-          <option value="Bussiness">Bussiness</option>
+          <option value="Bussiness">Business</option>
         </select>
       </div>
       <div class="form-group">
@@ -122,7 +122,7 @@
         />
       </div>
       <div class="mb-3">
-        <label for="size" class="form-label">Please Enter Size in sqft</label>
+        <label for="size" class="form-label">Please Enter Size (in sqft)</label>
         <input
           type="text"
           class="form-control"
@@ -135,9 +135,9 @@
       <div>
         Is the Property Available to Rent?
         <input type="radio" :value="true" v-model="newProperty.isAvailable" />
-        yes
+        Yes
         <input type="radio" :value="false" v-model="newProperty.isAvailable" />
-        no
+        No
       </div>
       <button type="submit" class="btn btn-success">Submit</button>
     </form>

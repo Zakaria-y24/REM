@@ -57,7 +57,7 @@
           />
         </div>
         <div class="mb-3">
-          <label for="birthDate" class="form-label">Please enter your Date of Birth in yyyy-mm-dd format</label>
+          <label for="birthDate" class="form-label">Please enter your Date of Birth (in yyyy-mm-dd format)</label>
           <input
             type="text"
             class="form-control"
@@ -79,7 +79,7 @@
           />
         </div>
         <div class="mb-3">
-          <label for="salary" class="form-label">Please Enter yearly salary</label>
+          <label for="salary" class="form-label">Please Enter annual salary</label>
           <input
             type="text"
             class="form-control"
