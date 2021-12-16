@@ -56,7 +56,7 @@ namespace Capstone.Controllers
 
             return Ok(results);
         }
-        [HttpPut("availability")]
+        [HttpPut("availability/notavailable")]
         [Authorize(Roles = "admin")]
         public ActionResult UpdateAvailability(Applicant application)
         {
@@ -74,6 +74,29 @@ namespace Capstone.Controllers
                 }
             }
             
+            var results = properties.UpdateNonAvailability(updatedProperty);
+
+            return Ok(results);
+
+        }
+        [HttpPut("availability/available")]
+        [Authorize(Roles = "admin")]
+        public ActionResult UpdateNonAvailability(Applicant application)
+        {
+            int userId = int.Parse(this.User.FindFirst("sub").Value);
+
+            var propertyList = properties.GetAllMyProperties(userId);
+
+            Property updatedProperty = new Property();
+            foreach (var property in propertyList)
+            {
+                if (property.Id == application.PropertyId)
+                {
+                    updatedProperty = property;
+                    break;
+                }
+            }
+
             var results = properties.UpdateAvailability(updatedProperty);
 
             return Ok(results);

@@ -12,7 +12,7 @@
       {{properties.street}}
     {{properties.city}}
     {{properties.zipcode}}
-     <span v-if="properties.isAvailable == false">Not</span> Avaiabile 
+     <span v-if="properties.isAvailable == false">Not</span> Available 
     </p>
   </div>
 

@@ -9,7 +9,10 @@ export default {
         return axios.get('/properties/myproperties');
     },
     MakePropertyUnavailable(property){
-        return axios.put('/properties/availability', property)
+        return axios.put('/properties/availability/notavailable', property)
+    },
+    MakePropertyAvailable(property){
+        return axios.put('/properties/availability/available', property)
     },
     addProperty(property) {
          return axios.post('/properties', property);
