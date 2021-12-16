@@ -179,13 +179,33 @@ namespace Capstone.DAO
 
             return properties;
         }
-        public int UpdateAvailability(Property updatedProperty)
+        public int UpdateNonAvailability(Property updatedProperty)
         {
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 const string sql = "UPDATE properties SET property_isAvailable = 0 WHERE property_id = @property_id; SELECT @@IDENTITY;";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@property_id", updatedProperty.Id);
+
+                    command.ExecuteNonQuery();
+
+                }
+
+            }
+            return updatedProperty.Id;
+
+        }
+        public int UpdateAvailability(Property updatedProperty)
+        {
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                const string sql = "UPDATE properties SET property_isAvailable = 1 WHERE property_id = @property_id; SELECT @@IDENTITY;";
 
                 using (SqlCommand command = new SqlCommand(sql, conn))
                 {
