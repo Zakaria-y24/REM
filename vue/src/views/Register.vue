@@ -40,7 +40,7 @@
         <router-link :to="{ name: 'login' }">Have an account?</router-link>
       </div>
       <div>
-        Are you a manager?
+        Are you a Property Manager?
       <input type="radio" :value="'admin'" v-model="user.role"> Yes
       <input type="radio" :value="'user'" v-model="user.role"> No
       </div>

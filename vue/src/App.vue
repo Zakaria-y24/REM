@@ -24,7 +24,7 @@
               Home
             </router-link>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link
               tag="button"
               class="nav-link"
@@ -32,7 +32,7 @@
             >
               Search
             </router-link>
-          </li>
+          </li> -->
           <li class="nav-item">
           <router-link
             tag="button"
@@ -73,15 +73,7 @@
             Manage Applications
           </router-link>
           </li>
-          <li class="nav-item">
-          <router-link
-            v-if="isLoggedIn && isAdmin"
-            class="nav-link"
-            v-bind:to="{ name: 'Data' }"
-          >
-            View Data
-          </router-link>
-          </li>
+         
           <li class="nav-item">
           <router-link
             class="nav-link"

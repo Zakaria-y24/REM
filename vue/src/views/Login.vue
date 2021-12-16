@@ -129,7 +129,7 @@ html,body{margin:0;padding:0;}
 
 
 
-.row{
+.container{
   background-color: #f4f4f4;
   border-left: 0.5rem solid #E63946;
 } 
