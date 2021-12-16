@@ -1,37 +1,41 @@
 <template>
   <div class="home">
     <splash-page />
-      <h2 class="filter-lable">Filter Options</h2>
+    <div class="container text-center p-2 filter-container">
+      <h2 class="filter-label">Filter Options</h2>
+     <form class="row">
     <div class="filterOptions">
-      <div>
-    <label class="searches" for="zipcode">ZipCode:</label>
-    <input  type="text" v-model="zipcode" id="zipcode" />
+      <div class="input-group input-group-sm flex-nowrap">
+    <label class="searches col-form-label" for="zipcode">ZipCode:</label>
+    <input  type="text" v-model="zipcode" id="zipcode" class="form-control"/>
       </div>
-      <div>
-    <label class="searches" for="beds">Beds:</label>
-    <input type="text" v-model="beds" id="beds" />
+      <div class="input-group input-group-sm flex-nowrap">
+    <label class="searches col-form-label" for="beds">Beds:</label>
+    <input type="text" v-model="beds" id="beds" class="form-control"/>
       </div>
-      <div>
-    <label class="searches" for="baths">Baths:</label>
-    <input type="text" v-model="baths" id="baths" />
+      <div class="input-group input-group-sm flex-nowrap">
+    <label class="searches col-form-label" for="baths">Baths:</label>
+    <input type="text" v-model="baths" id="baths" class="form-control"/>
       </div>
-      <div>
-    <label class="searches" for="rent">Rent:</label>
-    <input type="text" v-model="rent" id="rent" />
+      <div class="input-group input-group-sm flex-nowrap">
+    <label class="searches col-form-label" for="rent">Rent:</label>
+    <input type="text" v-model="rent" id="rent" class="form-control"/>
     </div>
-    <div>
-    <label class="searches" for="size">Size:</label>
-    <input type="text" v-model="size" id="size" />
+    <div class="input-group input-group-sm flex-nowrap">
+    <label class="searches col-form-label" for="size">Size:</label>
+    <input type="text" v-model="size" id="size" class="form-control"/>
     </div>
-    <div>
-      <label class="searches" for="type">Property Type: </label>
-    <select v-model="type" id="type">
-      <option value="">Show All</option>
-      <option value="House">House</option>
-      <option value="Apartment">Apartment</option>
-      <option value="Bussiness">Business</option>
-    </select>
+    <div class="input-group input-group-sm">
+      <label class="searches col-form-label" for="type">Property Type: </label>
+      <select v-model="type" id="type" class="form-select form-select-sm">
+       <option value="">Show All</option>
+       <option value="House">House</option>
+       <option value="Apartment">Apartment</option>
+       <option value="Bussiness">Business</option>
+     </select>
     </div>
+    </div>
+    </form>
     </div>
       <h3 class="text-center mt-3">Available Properties</h3>
 
@@ -125,19 +129,25 @@ body {
 .filterOptions {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  
+  padding: 0 3rem;
 }
 .searches {
-  
-  margin-left: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+
 }
-.filter-lable {
-  display: flex;
-  justify-content: center;
+.filter-label {
   margin-bottom: 15px;
 }
+.filter-container{
+  background-color: #f4f4f4;
+}
 
+.container{
+  max-width: 100%;
+}
 
+select {
+  height: 31px;
+}
 </style>
