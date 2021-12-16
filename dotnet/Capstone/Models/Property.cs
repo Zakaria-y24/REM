@@ -22,7 +22,5 @@ namespace Capstone.Models
         public int OwnerId { get; set;}
         public int UserId { get; set; }
         public bool IsAvailable { get; set; }
-
-
     }
 }

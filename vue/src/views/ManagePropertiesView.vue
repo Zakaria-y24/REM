@@ -16,6 +16,7 @@
      <div class="container mt-5 text-center">
     <GoogleChart v-bind:properties="properties" />
   </div>
+
   </div>
 </template>
 
