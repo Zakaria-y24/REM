@@ -63,6 +63,7 @@ export default {
         ["Revenue", this.revenueData, "#6B58E2"],
         ["Lost Revenue", this.lostRevenueData, "#00B28F"],
         ["Potential Revenue", this.potentialRevenueData, "#F8D12F"],
+        ["Average Rent", this.averageRent, "#E63946"]
       ]},
     vacantPropertiesCount() {
       return this.vacantProperties.length;
@@ -91,6 +92,16 @@ export default {
       });
       return totalRent;
     },
+    averageRent(){
+      let totalRent=0;
+      this.properties.forEach((p)=>{
+        if(!p.isAvailable){
+         totalRent += p.rent;
+        }
+        totalRent /= this.occupiedProperties.length;
+      });
+      return totalRent;
+    }
   },
 };
 </script>
