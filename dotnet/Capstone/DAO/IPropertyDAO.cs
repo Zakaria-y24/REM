@@ -10,5 +10,6 @@ namespace Capstone.DAO
         IEnumerable<Property> SearchProperties(string zipcode, string beds, string baths);
         IEnumerable<Property> GetAllMyProperties(int userId);
         int UpdateAvailability(Property updatedProperty);
+        int UpdateNonAvailability(Property updatedProperty);
     }
 }

@@ -97,6 +97,16 @@ export default {
         });
     },
     denyApplication() {
+      PropertyService.MakePropertyAvailable(this.applications)
+        .then((response) => {
+          const newItem = response.data;
+          console.log(newItem);
+        })
+        .catch((response) => {
+          console.error("Couldn't update property", response);
+          this.showError = true;
+          this.errorMessage = "Couldn't update property please try again";
+        });
       ApplicationService.DenyApplication(this.applications)
         .then((response) => {
           const newItem = response.data;

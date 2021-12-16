@@ -6,9 +6,13 @@
     <!-- If you start to get random styling you don't like, remove container from this div -->
     <nav id="nav" class="navbar navbar-expand-md">
       <div class="container-fluid">
-        <a class="navbar-brand" href="home.vue">
+        <router-link
+              tag="button"
+              class="nav-link"
+              v-bind:to="{ name: 'home' }"
+            >
           <img src="../images/rem-logo.png" class="logo" />
-        </a>
+            </router-link>
         <div class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">

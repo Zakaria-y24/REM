@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="my-component d-flex justify-content-center align-items-center">
     <div class="container">
-      <div class="row justify-content-center align-items-center mt-5">
-        <div class="col-12 col-lg-6 pb-2">
+      <div class="row h-100">
+        <div class="col-12 col-lg-6 pb-2 pt-2">
           <div id="login" class="text-center">
             <form class="form-signin" @submit.prevent="login">
-              <h1 class="h3 mb-3 font-weight-bold">Please Sign In</h1>
+              <h1 class="h3 font-weight-bold">Please Sign In</h1>
               <div class="form-group">
                 <router-link :to="{ name: 'register' }"
                   >Need an account?</router-link
@@ -117,34 +117,25 @@ export default {
 };
 </script>
 <style scoped>
-/* #app {
-    background-color: #f4f4f4;
-} */
-.container {
-  background-color: #fff;
+
+.my-component{
+  height: 100vh;
+  background-color:  #fff;
+ 
 }
+
+html,body{margin:0;padding:0;}
+
+
+
 
 .row{
   background-color: #f4f4f4;
-  
-  border-bottom: 0.5rem solid #E63946;
+  border-left: 0.5rem solid #E63946;
 } 
-body {
-  height: 100vh;
-  width: 100vw;
-  background-color:  #f4f4f4;
-}
+
 h1 {
   color: #333;
-}
-.background {
-  box-sizing: content-box;
-  margin: 0 auto;
-  padding: 0;
-  height: 50vh;
-  background-color: #f4f4f4;
-  color: #1d3557;
-  width: 100vw;
 }
 
 input {
