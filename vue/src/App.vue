@@ -24,15 +24,7 @@
               Home
             </router-link>
           </li>
-          <!-- <li class="nav-item">
-            <router-link
-              tag="button"
-              class="nav-link"
-              v-bind:to="{ name: 'search' }"
-            >
-              Search
-            </router-link>
-          </li> -->
+       
           <li class="nav-item">
           <router-link
             tag="button"

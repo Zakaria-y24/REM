@@ -43,17 +43,5 @@ export default {
 }
 </script>
 <style >
-/* 
-  .PropertyDetails {
-    text-align: center;
-    color: white;
-    width: 300px;
-  border: 15px solid #76BFED;
-  padding: 50px;
-  margin: 20px;
- 
-  }
-  body {
-    background-image: url("https://external-preview.redd.it/orB818nEmNCypKfxPNQSVxOFIg6q8iNsvYGwMgk6Irg.jpg?auto=webp&s=1e3519053e8c865fc82667770e58d0d9469343d9") ;
-  } */
+
 </style>

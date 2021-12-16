@@ -5,7 +5,6 @@ import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import Register from "../views/Register.vue";
 import store from "../store/index";
-import Search from '../views/Search.vue';
 import PropertyDetailsView from "../views/PropertyDetailsView.vue";
 import AddPropertyView from "../views/AddPropertyView.vue";
 import MyApplicationsView from "../views/MyApplicationsView.vue";
@@ -113,23 +112,8 @@ const router = new Router({
       path: "*",
       redirect: "/",
     },
-    {
-      path:"/search",
-      name: "search",
-      component: Search,
-      meta:{
-        requiresAuth: false,
-      },
-    },
-    /*{
-      path:"/data",
-        name:"Data",
-        component: Data,
-        meta:{
-          requiresAuth: false,
-        },
+  
 
-    },*/
 
     
   ],

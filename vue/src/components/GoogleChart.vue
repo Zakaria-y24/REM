@@ -98,9 +98,10 @@ export default {
         if(!p.isAvailable){
          totalRent += p.rent;
         }
-        totalRent /= this.occupiedProperties.length;
+        
       });
-      return totalRent;
+      totalRent /= this.occupiedProperties.length;
+      return totalRent.toFixed(2);
     }
   },
 };
