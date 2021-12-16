@@ -90,11 +90,11 @@ export default {
     margin-top:15px;
 }
 
-#searchForm {
+/* #searchForm {
    display: flex;
    flex-direction: row;
    
-}
+} */
 
 .btn {
     width: 25%;
