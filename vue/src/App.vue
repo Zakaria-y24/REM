@@ -24,7 +24,7 @@
               Home
             </router-link>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link
               tag="button"
               class="nav-link"
@@ -32,7 +32,7 @@
             >
               Search
             </router-link>
-          </li>
+          </li> -->
           <li class="nav-item">
           <router-link
             tag="button"
