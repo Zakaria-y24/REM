@@ -117,6 +117,7 @@ export default {
 };
 </script>
 
+
 <!-- Application-Wide Styles go here. 
      Any valid CSS or SCSS is allowable here. See https://sass-lang.com/documentation/style-rules for info on SCSS -->
 <style lang="scss">
@@ -127,7 +128,8 @@ export default {
 
 // Your custom styles go below this point
 #app {
-  height: 100vh;
+  height: 100%;
+  width: 100%;
 }
 template {
   margin-top: 5px;
