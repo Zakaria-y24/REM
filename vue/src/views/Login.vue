@@ -1,55 +1,78 @@
 <template>
-<div class="background d-flex justify-content-between">
-  <div id="login" class="text-center">
-    <form class="form-signin " @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-bold">Please Sign In</h1>
-      <div class="form-group">
-        <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      </div>
-      
-      <!-- conditions-->
-      <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
-        Invalid username and password!
-      </div>
-      <div class="alert alert-danger" role="alert" v-if="networkError">
-        Network error!
-      </div>
-      <div
-        class="alert alert-success"
-        role="alert"
-        v-if="this.$route.query.registration">
-        Thank you for registering, please sign in.
-      </div>
-       <!-- end conditions-->
+  <div class="my-component d-flex justify-content-center align-items-center">
+    <div class="container">
+      <div class="row h-100">
+        <div class="col-12 col-lg-6 pb-2 pt-2">
+          <div id="login" class="text-center">
+            <form class="form-signin" @submit.prevent="login">
+              <h1 class="h3 font-weight-bold">Please Sign In</h1>
+              <div class="form-group">
+                <router-link :to="{ name: 'register' }"
+                  >Need an account?</router-link
+                >
+              </div>
 
-      <div class="form-group">
-        <label for="username" class="form-label">Username</label>
-        <input
-          type="text"
-          id="username"
-          class="form-control"
-          placeholder="Username"
-          v-model="user.username"
-          required
-          autofocus />
-      </div>
-      <div class="form-group ">
-       <label for="password" class="form-label">Password</label>
+              <!-- conditions-->
+              <div
+                class="alert alert-danger"
+                role="alert"
+                v-if="invalidCredentials"
+              >
+                Invalid username and password!
+              </div>
+              <div class="alert alert-danger" role="alert" v-if="networkError">
+                Network error!
+              </div>
+              <div
+                class="alert alert-success"
+                role="alert"
+                v-if="this.$route.query.registration"
+              >
+                Thank you for registering, please sign in.
+              </div>
+              <!-- end conditions-->
 
-        <input
-          type="password"
-          id="password"
-          class="form-control"
-          placeholder="Password"
-          v-model="user.password"
-          required />
+              <div class="form-group d-flex flex-column">
+                <label for="username" class="form-label align-self-lg-start">Username</label>
+                <input
+                  type="text"
+                  id="username"
+                  class="form-control"
+                  placeholder="Username"
+                  v-model="user.username"
+                  required
+                  autofocus
+                />
+              </div>
+              <div class="form-group d-flex flex-column">
+                <label for="password" class="form-label align-self-lg-start">Password</label>
+
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="Password"
+                  v-model="user.password"
+                  required
+                />
+              </div>
+              <button
+                class="btn btn-primary bg-danger border-danger"
+                type="submit"
+              >
+                Sign in
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="img-container d-none d-lg-block col-lg-6 pr-0">
+          
+          <h2 style="position: absolute; left: 50%; top:50%; transform: translate(-50%, -50%);" class="text-white">Welcome Back</h2>
+          <img src="../../images/login-img.jpg" class="img-fluid"/>
+         
+        </div>
       </div>
-      <button class="btn btn-primary bg-danger border-danger" type="submit">Sign in</button>
-    </form>
-  </div>
-  <div class="image d-flex justify-content-center">
-  <h2 class="align-self-center">Welcome Back</h2>
-  </div>
+    </div>
   </div>
 </template>
 
@@ -85,9 +108,7 @@ export default {
 
           if (response == null || response.status === 500) {
             this.networkError = true;
-          }
-
-          else if (response.status === 401) {
+          } else if (response.status === 401) {
             this.invalidCredentials = true;
           }
         });
@@ -96,38 +117,33 @@ export default {
 };
 </script>
 <style scoped>
-body {
+
+.my-component{
   height: 100vh;
-  width: 100vw;
+  background-color:  #fff;
+ 
 }
+
+html,body{margin:0;padding:0;}
+
+
+
+
+.row{
+  background-color: #f4f4f4;
+  border-left: 0.5rem solid #E63946;
+} 
+
 h1 {
   color: #333;
 }
-.background{
-  box-sizing: content-box;
+
+input {
   margin: 0 auto;
-  padding: 0;
- height: 50vh;
-  background-color: #F4F4F4;
-  color: #1D3557;
-  width: 100vw;
-}
-.image{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url(../../images/login-img.jpg);
-  width: 50vw;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: white;
-}
-input{
-  width: 50vw;
-  margin: 0 auto;
-  border: 1px solid #457B9D;
+  border: 1px solid #457b9d;
 }
 
-.form-group{
+.form-group {
   padding-left: 1rem;
   padding-right: 1rem;
 }

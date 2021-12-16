@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <splash-page />
+      <h2 class="filter-lable">Filter Options</h2>
     <div class="filterOptions">
       <div>
     <label class="searches" for="zipcode">ZipCode:</label>
@@ -32,17 +33,17 @@
     </select>
     </div>
     </div>
-    <div class="properties-container">
       <h3 class="text-center mt-3">Available Properties</h3>
 
       <div class="d-flex p-2 justify-content-around">
         <div class="row gap-5">
+        </div>
           <properties-list
             v-for="properties of filteredProperties"
             v-bind:key="properties.id"
             v-bind:properties="properties"
           />
-        </div>
+    <div class="properties-container">
         <property-details v-if="isLoggedIn && !isAdmin" />
       </div>
     </div>
@@ -123,12 +124,19 @@ body {
 }
 .filterOptions {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   
 }
 .searches {
+  
   margin-left: 10px;
+}
+.filter-lable {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 
 
